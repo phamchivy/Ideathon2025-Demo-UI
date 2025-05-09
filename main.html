@@ -1,0 +1,2321 @@
+<!DOCTYPE html><html lang="vi" data-id="4nzj5r5a" data-line="1-1272"><head data-id="732ryyx7" data-line="1-232">
+  <meta charset="UTF-8" data-id="5xtneaei" data-line="2-2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-id="nt6aw8j8" data-line="3-3">
+  <script src="https://cdn.tailwindcss.com" data-id="k53fav4q" data-line="4-4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" data-id="etvnncd3" data-line="5-5">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Comic+Neue:wght@400;700&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet" data-id="wb8wr61a" data-line="6-6">
+  <title data-id="napmefib" data-line="7-7">AI Study Play - Học Tập Vui Nhộn</title>
+  <style data-id="xxyt4e6u" data-line="8-231">
+    body {
+      body {
+  font-family: 'Roboto', sans-serif;
+}
+      background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23f9f7fe"/><circle cx="50" cy="100" r="40" fill="%23ffd6e0" opacity="0.6"/><circle cx="1200" cy="150" r="60" fill="%23d6f5ff" opacity="0.5"/><circle cx="300" cy="700" r="50" fill="%23e5f9d0" opacity="0.5"/><circle cx="900" cy="600" r="70" fill="%23ffebd1" opacity="0.5"/><path d="M100 400 Q250 350 400 400 T700 400" stroke="%23c2e0ff" stroke-width="2" fill="none"/><path d="M800 200 Q950 150 1100 200" stroke="%23ffd6e0" stroke-width="2" fill="none"/></svg>');
+    }
+    .handwriting-pad {
+      background-color: #e8f5e9;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      border: 5px solid #81c784;
+      border-radius: 25px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .camera-frame {
+      border: 8px solid #4fc3f7;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(79, 195, 247, 0.8);
+      background-color: #e0f7fa;
+    }
+    .bounce {
+      animation: bounce 0.5s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-10px); }
+    }
+    .shake {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .blink {
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .rotate-hover:hover {
+      animation: rotate 0.5s;
+    }
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0.9;
+    }
+    .speech-bubble {
+      position: relative;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      font-size: 1.1rem;
+    }
+    .speech-bubble:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 20%;
+      width: 0;
+      height: 0;
+      border: 12px solid transparent;
+      border-top-color: #ffffff;
+      border-bottom: 0;
+      margin-left: -12px;
+    }
+    .mode-tab {
+      transition: all 0.3s ease;
+    }
+    .mode-tab.active {
+      background-color: #81c784;
+      color: white;
+      transform: scale(1.05);
+    }
+    .question-animate {
+      animation: questionPulse 3s infinite;
+    }
+    @keyframes questionPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .button-shine:hover {
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      transform: scale(1.1);
+    }
+    .robot-happy {
+      animation: robotHappy 2s infinite;
+    }
+    @keyframes robotHappy {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(2deg); }
+      75% { transform: translateY(-5px) rotate(-2deg); }
+    }
+    .robot-sad {
+      animation: robotSad 0.8s;
+    }
+    @keyframes robotSad {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    .flash {
+      animation: flash 0.3s;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; box-shadow: 0 0 30px white; }
+    }
+    .screen {
+      display: none;
+    }
+    .screen.active {
+      display: block;
+    }
+    .subject-card {
+      transition: all 0.3s ease;
+    }
+    .subject-card:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .reward-badge {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .reward-badge:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .progress-tracker {
+      background: linear-gradient(90deg, #81c784 0%, #4fc3f7 50%, #ba68c8 100%);
+      height: 10px;
+      border-radius: 5px;
+    }
+    .leaderboard-row:nth-child(1) {
+      background-color: #fff8e1;
+    }
+    .leaderboard-row:nth-child(2) {
+      background-color: #f5f5f5;
+    }
+    .leaderboard-row:nth-child(3) {
+      background-color: #ffebee;
+    }
+    .jump {
+      animation: jump 0.5s alternate infinite;
+    }
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .happy-dance {
+      animation: happyDance 0.8s ease infinite;
+    }
+    @keyframes happyDance {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      25% { transform: translateY(-10px) rotate(5deg); }
+      50% { transform: translateY(-5px) rotate(-5deg); }
+      75% { transform: translateY(-10px) rotate(5deg); }
+    }
+    .star-sparkle {
+      position: relative;
+    }
+    .star-sparkle::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+      opacity: 0;
+      animation: sparkle 2s infinite;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    .bubble-float {
+      animation: bubbleFloat 4s ease-in-out infinite;
+    }
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .wiggle {
+      animation: wiggle 0.5s ease infinite;
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+  </style>
+    <script src="https://cdn.tailwindcss.com" data-id="iyc9ocif" data-line="5-5"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" data-id="h06esfp1" data-line="6-6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" data-id="gk4mabwo" data-line="7-7">
+    <style data-id="b0tkapgk" data-line="8-41">
+      min-h-screen {
+        font-family: 'Roboto', sans-serif;
+        background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23f9f7fe"/><circle cx="50" cy="100" r="40" fill="%23FFD3E0" opacity="0.6"/><circle cx="1200" cy="150" r="60" fill="%23B6DCFE" opacity="0.5"/><circle cx="300" cy="700" r="50" fill="%23C3E5AE" opacity="0.5"/><circle cx="900" cy="600" r="70" fill="%23FFD6BA" opacity="0.5"/><path d="M100 400 Q250 350 400 400 T700 400" stroke="%23C3E5AE" stroke-width="2" fill="none"/><path d="M800 200 Q950 150 1100 200" stroke="%23FFD3E0" stroke-width="2" fill="none"/></svg>');
+      }
+      .handwriting-pad {
+        background-color: #e8f5e9;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        border: 5px solid #81c784;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+      .word-card {
+        transition: all 0.3s ease;
+      }
+      .word-card:hover {
+        transform: translateY(-3px);
+      }
+      .color-option {
+        transition: all 0.3s ease;
+      }
+      .color-option:hover {
+        transform: scale(1.1);
+      }
+    </style>
+
+<script src="https://cdn.tailwindcss.com" data-id="k5cs56nm" data-line="5-5"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" data-id="c6wq1h5q" data-line="6-6">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" data-id="fxx9ni7y" data-line="7-7">
+<style data-id="pbhb1whh" data-line="8-41">
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23f9f7fe"/><circle cx="50" cy="100" r="40" fill="%23FFD3E0" opacity="0.6"/><circle cx="1200" cy="150" r="60" fill="%23B6DCFE" opacity="0.5"/><circle cx="300" cy="700" r="50" fill="%23C3E5AE" opacity="0.5"/><circle cx="900" cy="600" r="70" fill="%23FFD6BA" opacity="0.5"/><path d="M100 400 Q250 350 400 400 T700 400" stroke="%23C3E5AE" stroke-width="2" fill="none"/><path d="M800 200 Q950 150 1100 200" stroke="%23FFD3E0" stroke-width="2" fill="none"/></svg>');
+  }
+  .handwriting-pad {
+    background-color: #e8f5e9;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    border: 5px solid #81c784;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  .word-card {
+    transition: all 0.3s ease;
+  }
+  .word-card:hover {
+    transform: translateY(-3px);
+  }
+  .color-option {
+    transition: all 0.3s ease;
+  }
+  .color-option:hover {
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body class="min-h-screen" alt="AI Stydy Play" data-id="r9vnk2eo" data-line="233-1272">
+  <!-- Home Screen -->
+  <div id="homeScreen" class="screen active container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="kirrlxgt" data-line="235-273">
+    <div class="flex justify-center mb-8" data-id="h19c919m" data-line="236-242">
+      <div class="text-center" data-id="0ocu6qjx" data-line="237-241">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-32 h-32 mx-auto happy-dance" alt="AI Logo" data-id="jl6zkcd8" data-line="238-238">
+        <h1 class="text-6xl font-bold text-purple-600 mb-4" data-id="9n20ipm3" data-line="239-239">AI Study Play</h1>
+        <p class="text-2xl text-gray-600" data-id="wctdvlhv" data-line="240-240">Học mà chơi - Chơi mà học!</p>
+      </div>
+    </div>
+
+    <div class="relative flex-grow flex flex-col items-center justify-center" data-id="7jfjvlp9" data-line="244-268">
+      <!-- Background floating elements -->
+      <div class="absolute inset-0 pointer-events-none" data-id="vbe0y4ae" data-line="246-251">
+        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="absolute top-20 left-20 w-16 h-16 opacity-30 bubble-float" alt="Pencil" data-id="z51id1pf" data-line="247-247">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" class="absolute bottom-20 right-20 w-16 h-16 opacity-30 bubble-float" alt="Book" data-id="qs6iw2ez" data-line="248-248">
+        <div class="absolute top-1/3 left-1/4 w-8 h-8 bg-yellow-300 rounded-full opacity-30 bubble-float" style="animation-delay: 0.5s;" data-id="p3lw7zk6" data-line="249-249"></div>
+        <div class="absolute bottom-1/4 right-1/3 w-12 h-12 bg-pink-300 rounded-full opacity-30 bubble-float" style="animation-delay: 1s;" data-id="lv16y3da" data-line="250-250"></div>
+      </div>
+
+      <!-- Main buttons -->
+      <div class="grid grid-cols-2 gap-8 w-full max-w-2xl z-10" data-id="e2rglybe" data-line="254-267">
+        <button onclick="showScreen('subjectScreen')" class="bg-gradient-to-br from-blue-400 to-blue-600 text-white text-2xl font-bold py-8 rounded-3xl shadow-xl hover:scale-105 transition-all duration-300 jump" data-id="r5tcy6fq" data-line="255-257">
+          <i class="fas fa-play mr-2" data-id="oiwcrm2e" data-line="256-256"></i> Bắt đầu học
+        </button>
+        <button onclick="showScreen('leaderboardScreen')" class="bg-gradient-to-br from-yellow-400 to-yellow-600 text-white text-2xl font-bold py-8 rounded-3xl shadow-xl hover:scale-105 transition-all duration-300 jump" style="animation-delay: 0.2s;" data-id="tjlbmps0" data-line="258-260">
+          <i class="fas fa-trophy mr-2" data-id="plz2u1ab" data-line="259-259"></i> Bảng xếp hạng
+        </button>
+        <button onclick="showScreen('rulesScreen')" class="bg-gradient-to-br from-green-400 to-green-600 text-white text-2xl font-bold py-8 rounded-3xl shadow-xl hover:scale-105 transition-all duration-300 jump" style="animation-delay: 0.4s;" data-id="5xdcjudw" data-line="261-263">
+          <i class="fas fa-info-circle mr-2" data-id="u9qurrz4" data-line="262-262"></i> Luật chơi
+        </button>
+        <button onclick="showScreen('loginScreen')" class="bg-gradient-to-br from-pink-400 to-pink-600 text-white text-2xl font-bold py-8 rounded-3xl shadow-xl hover:scale-105 transition-all duration-300 jump" style="animation-delay: 0.6s;" data-id="exs40a4z" data-line="264-266">
+          <i class="fas fa-user mr-2" data-id="sy5p8nnj" data-line="265-265"></i> Đăng nhập
+        </button>
+      </div>
+    </div>
+
+<style>.scroll-container {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.label {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.arrow {
+  font-size: 4rem;
+  color: #555;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+</style>
+    <script>function isAtBottom() {
+  return (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 10);
+}
+
+function handleScrollClick() {
+  if (isAtBottom()) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } else {
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  }
+}
+
+// Cập nhật mũi tên và nhãn khi cuộn trang
+window.addEventListener("scroll", () => {
+  const arrow = document.getElementById("scrollArrow");
+  const label = document.getElementById("scrollLabel");
+
+  if (isAtBottom()) {
+    arrow.textContent = "↑";
+    label.textContent = "Cuộn lên";
+  } else {
+    arrow.textContent = "↓";
+    label.textContent = "Kéo xuống";
+  }
+});
+
+</script>
+    <div class="text-center mt-8 text-gray-500" data-id="6jae1a2f" data-line="270-272">
+      <p data-id="fsorzefy" data-line="271-271">© 2025 AI Play. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- Nội dung đầu trang -->
+
+  <!-- Cụm mũi tên + chữ kéo xuống -->
+  <div class="scroll-container" onclick="handleScrollClick()" >
+  <div class="label" id="scrollLabel">Kéo xuống</div>
+  <div class="arrow" id="scrollArrow">↓</div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- Subject Selection Screen -->
+  <div id="subjectScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="u1e70i0k" data-line="276-306">
+    <div class="flex justify-between items-center mb-8" data-id="emggaee4" data-line="277-283">
+      <button onclick="showScreen('homeScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="sgq9dbf7" data-line="278-280">
+        <i class="fas fa-arrow-left mr-2" data-id="g0rv24mq" data-line="279-279"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-purple-600" data-id="elm6ha98" data-line="281-281">Chọn môn học</h2>
+      <div class="w-10" data-id="4pkupzp8" data-line="282-282"></div> <!-- Spacer -->
+    </div>
+
+    <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center" data-id="f53z8lcc" data-line="285-301">
+      <div onclick="showMathModeScreen()" class="subject-card bg-gradient-to-br from-blue-100 to-blue-50 p-8 rounded-3xl shadow-lg text-center cursor-pointer" data-id="ct8vfijs" data-line="286-292">
+        <div class="bg-blue-200 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6" data-id="av315nvg" data-line="287-289">
+          <i class="fas fa-calculator text-6xl text-blue-600 wiggle" style="animation-delay: 0.2s;" data-id="h9ppgmpd" data-line="288-288"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-blue-600 mb-4" data-id="7whknn47" data-line="290-290">Toán học</h3>
+        <p class="text-lg text-gray-600" data-id="k8cllyqt" data-line="291-291">Cộng trừ nhân chia vui nhộn</p>
+      </div>
+
+      <div onclick="startVietnameseMode()" class="subject-card bg-gradient-to-br from-green-100 to-green-50 p-8 rounded-3xl shadow-lg text-center cursor-pointer" data-id="bqabnamd" data-line="294-300">
+        <div class="bg-green-200 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6" data-id="td1wc0il" data-line="295-297">
+          <i class="fas fa-language text-6xl text-green-600 wiggle" style="animation-delay: 0.4s;" data-id="j25yzowa" data-line="296-296"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-green-600 mb-4" data-id="gxeqmlrq" data-line="298-298">Tiếng Việt</h3>
+        <p class="text-lg text-gray-600" data-id="oalm3crr" data-line="299-299">Tập viết chữ đẹp</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 text-gray-500" data-id="yg6lfpfe" data-line="303-305">
+      <p data-id="glroetm7" data-line="304-304">© 2025 AI Play. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- Math Mode Selection Screen -->
+  <div id="mathModeScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="6v1bftpz" data-line="309-339">
+    <div class="flex justify-between items-center mb-8" data-id="mm5c8rjd" data-line="310-316">
+      <button onclick="showScreen('subjectScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="m70lk0o0" data-line="311-313">
+        <i class="fas fa-arrow-left mr-2" data-id="t7k3a5de" data-line="312-312"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-blue-600" data-id="wyv87za4" data-line="314-314">Toán học - Chọn chế độ</h2>
+      <div class="w-10" data-id="9odzxbpf" data-line="315-315"></div> <!-- Spacer -->
+    </div>
+
+    <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center" data-id="lpqoqg6r" data-line="318-334">
+      <div onclick="startWriteMode()" class="subject-card bg-gradient-to-br from-purple-100 to-purple-50 p-8 rounded-3xl shadow-lg text-center cursor-pointer" data-id="hh1q0vok" data-line="319-325">
+        <div class="bg-purple-200 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6" data-id="59uz2s1s" data-line="320-322">
+          <i class="fas fa-pencil-alt text-6xl text-purple-600 wiggle" style="animation-delay: 0.2s;" data-id="rhrv3n94" data-line="321-321"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-purple-600 mb-4" data-id="jmkcox57" data-line="323-323">Viết tay</h3>
+        <p class="text-lg text-gray-600" data-id="h959l4dy" data-line="324-324">Viết đáp án bằng bút</p>
+      </div>
+
+      <div onclick="startCameraMode()" class="subject-card bg-gradient-to-br from-orange-100 to-orange-50 p-8 rounded-3xl shadow-lg text-center cursor-pointer" data-id="pdm7ii2g" data-line="327-333">
+        <div class="bg-orange-200 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6" data-id="lnhva310" data-line="328-330">
+          <i class="fas fa-camera text-6xl text-orange-600 wiggle" style="animation-delay: 0.4s;" data-id="rznupn23" data-line="329-329"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-orange-600 mb-4" data-id="4j6rfo85" data-line="331-331">Camera</h3>
+        <p class="text-lg text-gray-600" data-id="81jae9f1" data-line="332-332">Giơ ngón tay trả lời</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 text-gray-500" data-id="anobhsc4" data-line="336-338">
+      <p data-id="73n8xnwq" data-line="337-337">© 2025 AI Play. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="gameScreen" class="screen container mx-auto px-4 py-4 h-screen flex flex-col" data-id="5ptc3x0w" data-line="342-523">
+    <!-- Mode Selection Tabs -->
+    <div class="flex justify-center mb-4" data-id="aprejno5" data-line="344-353">
+      <div class="bg-white rounded-full p-1 shadow-lg flex" style="background: linear-gradient(135deg, #b3e5fc 0%, #f8bbd0 100%);" data-id="ffyjvas9" data-line="345-352">
+        <button id="writeModeTab" class="mode-tab active px-8 py-3 rounded-full font-bold text-blue-800 flex items-center" data-id="xz9n8xmy" data-line="346-348">
+          <i class="fas fa-pencil-alt mr-2 text-xl" data-id="39p7jyu5" data-line="347-347"></i> Chế độ viết
+        </button>
+        <button id="cameraModeTab" class="mode-tab px-8 py-3 rounded-full font-bold text-purple-800 flex items-center" data-id="msz6we8h" data-line="349-351">
+          <i class="fas fa-camera mr-2 text-xl" data-id="oh0dcpf3" data-line="350-350"></i> Chế độ camera
+        </button>
+      </div>
+    </div>
+
+    <!-- Top Section (Status Bar - 15%) -->
+    <div class="h-[15%] flex flex-col" data-id="3gp50pcs" data-line="356-398">
+      <div class="flex justify-between items-center mb-2" data-id="vochcg84" data-line="357-381">
+        <!-- Hearts (Wrong Attempts) -->
+        <div class="flex space-x-1 bg-white p-2 rounded-full shadow-md" data-id="6h0grqbg" data-line="359-365">
+          <i class="fas fa-heart text-4xl text-red-500 star-sparkle" data-id="s9gx2jqc" data-line="360-360"></i>
+          <i class="fas fa-heart text-4xl text-red-500 star-sparkle" style="animation-delay: 0.2s;" data-id="79e2g5x1" data-line="361-361"></i>
+          <i class="fas fa-heart text-4xl text-red-500 star-sparkle" style="animation-delay: 0.4s;" data-id="8cadw1rk" data-line="362-362"></i>
+          <i class="fas fa-heart text-4xl text-red-500 star-sparkle" style="animation-delay: 0.6s;" data-id="i233yfjw" data-line="363-363"></i>
+          <i class="fas fa-heart text-4xl text-red-500 star-sparkle" style="animation-delay: 0.8s;" data-id="xd8b52fr" data-line="364-364"></i>
+        </div>
+
+        <!-- Mascot (Right) -->
+        <div class="relative" data-id="86hr4xk0" data-line="368-373">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-20 h-20 bounce" alt="Robot Vui" data-id="76bn6dlg" data-line="369-369">
+          <div id="feedbackBubble" class="hidden absolute -top-16 -right-24 bg-white rounded-2xl p-3 w-40 shadow-xl speech-bubble" data-id="hmk5g0pu" data-line="370-372">
+            <p class="text-sm" data-id="d0xj2cfj" data-line="371-371">Làm tốt lắm!</p>
+          </div>
+        </div>
+
+        <!-- Help Stars (Right) -->
+        <div class="flex space-x-1 bg-white p-2 rounded-full shadow-md" data-id="fcmouslm" data-line="376-380">
+          <i class="fas fa-star text-4xl text-yellow-400 star-sparkle" data-id="kvmclfd8" data-line="377-377"></i>
+          <i class="fas fa-star text-4xl text-yellow-400 star-sparkle" style="animation-delay: 0.3s;" data-id="oh6sq64r" data-line="378-378"></i>
+          <i class="fas fa-star text-4xl text-yellow-400 star-sparkle" style="animation-delay: 0.6s;" data-id="md88r6wn" data-line="379-379"></i>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div class="relative flex justify-center items-center" data-id="0qpfa0f2" data-line="384-389">
+        <h2 id="questionText" class="text-5xl font-bold text-center text-purple-700 mb-2 question-animate" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);" data-id="lerzgvi3" data-line="385-385">1 + ... = 9</h2>
+        <div class="absolute -right-12 top-0" data-id="u7ea4yoj" data-line="386-388">
+          <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" class="w-16 h-16" alt="Sách Toán" data-id="08pgzmzc" data-line="387-387">
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-full bg-gray-200 rounded-full h-5 mb-2 shadow-inner" data-id="p7zcwgg8" data-line="392-396">
+        <div class="bg-gradient-to-r from-green-400 to-green-500 h-5 rounded-full flex items-center justify-end" style="width: 30%" data-id="acwxp2sv" data-line="393-395">
+          <div class="w-5 h-5 bg-white rounded-full shadow-md mr-1" data-id="x5ih072h" data-line="394-394"></div>
+        </div>
+      </div>
+      <p class="text-center font-bold text-gray-600 text-xl" data-id="ia63389r" data-line="397-397">Câu hỏi 3/10</p>
+    </div>
+
+    <!-- Middle Section (Game Area - 65%) -->
+    <div class="h-[65%] my-4 flex items-center justify-center relative" data-id="luv8z64c" data-line="401-442">
+      <!-- Write Mode Content -->
+      <div id="writeModeContent" class="w-full h-full flex flex-col items-center justify-center" data-id="zs340gu1" data-line="403-414">
+        <div class="handwriting-pad w-full h-3/4 mb-4 flex items-center justify-center relative" data-id="b7ug59kg" data-line="404-409">
+          <p class="text-xl text-gray-500" data-id="jgsr82jl" data-line="405-405">Viết câu trả lời vào bảng!</p>
+          <div class="absolute bottom-4 right-4" data-id="1r70j4oj" data-line="406-408">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-12 h-12" alt="Cây Bút" data-id="cnc0y6r9" data-line="407-407">
+          </div>
+        </div>
+        <div class="flex items-center bg-blue-50 rounded-2xl p-4 shadow-lg" data-id="bzb3uu0f" data-line="410-413">
+          <i class="fas fa-volume-up text-4xl text-blue-600 mr-3 cursor-pointer hover:text-blue-700" data-id="kb57ggnl" data-line="411-411"></i>
+          <p class="text-2xl font-bold text-blue-800" data-id="an9u5idp" data-line="412-412">Hệ thống nhận diện: <span id="recognizedText" class="text-green-600" data-id="g12hunlv" data-line="412-412">5</span></p>
+        </div>
+      </div>
+
+      <!-- Camera Mode Content -->
+      <div id="cameraModeContent" class="hidden w-full h-full flex flex-col items-center justify-center" data-id="d7as8mv2" data-line="417-438">
+        <div class="camera-frame w-full h-3/4 flex items-center justify-center relative" data-id="eozwaxfk" data-line="418-423">
+          <div class="absolute inset-0 flex items-center justify-center" data-id="7dsi46mk" data-line="419-421">
+            <i class="fas fa-camera text-8xl text-gray-200" data-id="gz7en835" data-line="420-420"></i>
+          </div>
+          <div id="cameraPreview" class="w-full h-full" data-id="2t5mjd05" data-line="422-422"></div>
+        </div>
+        <div class="speech-bubble mt-4" data-id="piyx9bbw" data-line="424-426">
+          <p class="text-blue-800 font-bold" data-id="n0hn8cv2" data-line="425-425">Giơ đúng số ngón tay rồi chụp hình nhé!</p>
+        </div>
+        <div class="relative mt-4" data-id="s0ee64b1" data-line="427-434">
+          <svg width="100" height="100" viewBox="0 0 100 100" class="absolute -top-10 -left-10" data-id="zswt5ppp" data-line="428-430">
+            <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#ff9800" stroke-width="2" data-id="xxomq6uj" data-line="429-429"></path>
+          </svg>
+          <button id="captureBtn" class="bg-gradient-to-br from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white w-24 h-24 rounded-full flex items-center justify-center shadow-xl button-shine transition-all duration-300" data-id="mtwkjc2l" data-line="431-433">
+            <i class="fas fa-camera text-4xl" data-id="0qybv6q8" data-line="432-432"></i>
+          </button>
+        </div>
+        <div class="flex items-center bg-blue-50 rounded-2xl p-4 shadow-lg mt-4" data-id="t4bb155z" data-line="435-437">
+          <p class="text-2xl font-bold text-blue-800" data-id="kzzapnb5" data-line="436-436">Hệ thống nhận diện: <span id="cameraRecognizedText" class="text-green-600" data-id="rd0sjy2w" data-line="436-436">0</span></p>
+        </div>
+      </div>
+
+      <!-- Confetti Effect Container -->
+      <div id="confettiContainer" class="absolute inset-0 pointer-events-none" data-id="siuxpmyy" data-line="441-441"></div>
+    </div>
+
+    <!-- Bottom Section (Controls - 20%) -->
+    <div class="h-[20%] flex items-center justify-center space-x-8" data-id="16wgidvx" data-line="445-477">
+      <!-- Reset Button -->
+      <div class="flex flex-col items-center" data-id="krzfev6q" data-line="447-452">
+        <button id="resetBtn" class="bg-gradient-to-br from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white w-20 h-20 rounded-full flex items-center justify-center shadow-xl rotate-hover transition-all duration-300" data-id="75y7sa8z" data-line="448-450">
+          <i class="fas fa-redo text-3xl" data-id="di7ogns8" data-line="449-449"></i>
+        </button>
+        <p class="text-sm font-bold text-gray-600 mt-1" data-id="l1acpd3d" data-line="451-451">Làm lại</p>
+      </div>
+
+      <!-- Help Button -->
+      <div class="flex flex-col items-center" data-id="0qus8qzf" data-line="455-460">
+        <button id="helpBtn" class="bg-gradient-to-br from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white w-20 h-20 rounded-full flex items-center justify-center shadow-xl blink transition-all duration-300" data-id="cacdxy2a" data-line="456-458">
+          <i class="fas fa-question text-3xl" data-id="qiycgwwv" data-line="457-457"></i>
+        </button>
+        <p class="text-sm font-bold text-gray-600 mt-1" data-id="folfzlk4" data-line="459-459">Trợ giúp</p>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex flex-col items-center" data-id="betlm19p" data-line="463-468">
+        <button id="submitBtn" class="bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white w-24 h-24 rounded-full flex items-center justify-center shadow-xl button-shine transition-all duration-300" data-id="c1ee72u5" data-line="464-466">
+          <i class="fas fa-check text-4xl" data-id="iimfxejw" data-line="465-465"></i>
+        </button>
+        <p class="text-sm font-bold text-gray-600 mt-1" data-id="ugcwl8be" data-line="467-467">Xác nhận</p>
+      </div>
+
+      <!-- Exit Button -->
+      <div class="flex flex-col items-center" data-id="ebgz53sb" data-line="471-476">
+        <button id="exitBtn" class="bg-gradient-to-br from-red-300 to-red-400 hover:from-red-400 hover:to-red-500 text-white w-20 h-20 rounded-xl flex items-center justify-center shadow-xl hover:shake transition-all duration-300" data-id="t5h75r5t" data-line="472-474">
+          <i class="fas fa-flag-checkered text-3xl" data-id="hntt6c0c" data-line="473-473"></i>
+        </button>
+        <p class="text-sm font-bold text-gray-600 mt-1" data-id="ys2pg4u8" data-line="475-475">Thoát</p>
+      </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exitModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" data-id="0uozdjnq" data-line="480-496">
+      <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);" data-id="5ceu0sy6" data-line="481-495">
+        <div class="absolute -top-16 left-1/2 transform -translate-x-1/2" data-id="ph7e7zg3" data-line="482-484">
+          <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" class="w-24 h-24" alt="Sách Toán" data-id="0hq2f5ee" data-line="483-483">
+        </div>
+        <h3 class="text-2xl font-bold text-red-500 mb-4" data-id="4lzvrchg" data-line="485-485">Bạn có chắc muốn thoát?</h3>
+        <p class="mb-6" data-id="eclnduyw" data-line="486-486">Tiến độ của bạn sẽ được lưu lại, nhưng bạn sẽ mất câu hỏi hiện tại.</p>
+        <div class="flex justify-center space-x-4" data-id="971h3iye" data-line="487-494">
+          <button id="confirmExitBtn" class="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-6 rounded-full transition-all duration-300" data-id="t68f4yww" data-line="488-490">
+            Có, thoát
+          </button>
+          <button id="cancelExitBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full transition-all duration-300" data-id="i5yjbmfg" data-line="491-493">
+            Hủy bỏ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completion Celebration Modal -->
+    <div id="celebrationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" data-id="uz94b7t8" data-line="499-522">
+      <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative overflow-hidden" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);" data-id="vkpv4e4l" data-line="500-521">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" data-id="gcnn42b7" data-line="501-503">
+          <i class="fas fa-medal text-9xl text-yellow-400 opacity-20" data-id="9tarl9e7" data-line="502-502"></i>
+        </div>
+        <div class="relative" data-id="b6qedv70" data-line="504-520">
+          <div class="absolute -top-24 left-1/2 transform -translate-x-1/2" data-id="c2w8knoc" data-line="505-507">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-32 h-32" alt="Cây Bút" data-id="5rkkgb79" data-line="506-506">
+          </div>
+          <h3 class="text-3xl font-bold text-purple-700 mb-4" data-id="vur7dac3" data-line="508-508">Chúc mừng!</h3>
+          <p class="text-xl mb-6" data-id="n1g0wkwj" data-line="509-509">Bạn đã hoàn thành 10 câu hỏi!</p>
+          <div data-id="gyhpth7k" data-line="510-519">
+            <p class="text-2xl font-bold text-yellow-500 mb-4" data-id="msx4uvcx" data-line="511-511">Điểm của bạn: <span id="finalScore" data-id="47tlh7zm" data-line="511-511">8</span>/10</p>
+            <div class="bg-yellow-50 p-4 rounded-xl mb-4" data-id="72xkcot3" data-line="512-515">
+              <p class="text-lg font-bold text-gray-700" data-id="drpkgdj9" data-line="513-513">Bạn đã nhận được sticker mới!</p>
+              <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-16 h-16 mx-auto mt-2" alt="Sticker Mới" data-id="srx4cvyc" data-line="514-514">
+            </div>
+            <button id="closeCelebrationBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300" data-id="6tjtg91h" data-line="516-518">
+              Yay! <i class="fas fa-smile-wink ml-2" data-id="wcismvjf" data-line="517-517"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="resultsScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="ajtrxdje" data-line="526-592">
+    <div class="flex-grow flex flex-col items-center justify-center" data-id="klq9uuw6" data-line="527-587">
+      <!-- Celebration elements -->
+      <div class="relative mb-12" data-id="i2a1016e" data-line="529-533">
+        <i class="fas fa-medal text-8xl text-yellow-400 absolute -top-12 -left-12 rotate-12" data-id="qhgk8hyx" data-line="530-530"></i>
+        <i class="fas fa-star text-6xl text-blue-400 absolute -top-6 -right-6 -rotate-12" data-id="t4h4krjv" data-line="531-531"></i>
+        <i class="fas fa-trophy text-9xl text-purple-400 happy-dance" data-id="6fv7773g" data-line="532-532"></i>
+      </div>
+
+      <h2 class="text-5xl font-bold text-purple-600 mb-6" data-id="dsx4nvk0" data-line="535-535">Hoàn thành!</h2>
+      
+      <div class="bg-white rounded-3xl p-8 shadow-xl w-full max-w-lg mb-8" data-id="mge00a0r" data-line="537-553">
+        <div class="flex justify-between items-center mb-6" data-id="hywyili7" data-line="538-547">
+          <div class="text-center" data-id="fc60883i" data-line="539-542">
+            <p class="text-2xl text-gray-500" data-id="buw31y73" data-line="540-540">Điểm số</p>
+            <p class="text-6xl font-bold text-green-500" data-id="35u1fjsp" data-line="541-541">8/10</p>
+          </div>
+          <div class="text-center" data-id="8lehymyg" data-line="543-546">
+            <p class="text-2xl text-gray-500" data-id="z0aqdn00" data-line="544-544">Huy chương</p>
+            <i class="fas fa-medal text-6xl text-yellow-400 star-sparkle" data-id="sgksv76r" data-line="545-545"></i>
+          </div>
+        </div>
+
+        <div class="w-full bg-gray-200 rounded-full h-4 mb-6" data-id="lqsqrq1j" data-line="549-551">
+          <div class="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full" style="width: 80%" data-id="czr3jcdu" data-line="550-550"></div>
+        </div>
+        <p class="text-center text-gray-600" data-id="f4ojwuq7" data-line="552-552">Bạn đã hoàn thành 80% bài học!</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 w-full max-w-lg" data-id="jlw6km3b" data-line="555-565">
+        <button onclick="continuePlaying()" class="bg-gradient-to-br from-blue-400 to-blue-600 text-white text-xl font-bold py-4 rounded-xl shadow-lg hover:scale-105 transition-all" data-id="33ytgi75" data-line="556-558">
+          <i class="fas fa-play mr-2" data-id="qxaauy52" data-line="557-557"></i> Chơi tiếp
+        </button>
+        <button onclick="showScreen('homeScreen')" class="bg-gradient-to-br from-purple-400 to-purple-600 text-white text-xl font-bold py-4 rounded-xl shadow-lg hover:scale-105 transition-all" data-id="zx2qe5bs" data-line="559-561">
+          <i class="fas fa-home mr-2" data-id="nu8g36mq" data-line="560-560"></i> Trang chủ
+        </button>
+        <button onclick="showScreen('leaderboardScreen')" class="bg-gradient-to-br from-yellow-400 to-yellow-600 text-white text-xl font-bold py-4 rounded-xl shadow-lg hover:scale-105 transition-all" data-id="x3g7xb7g" data-line="562-564">
+          <i class="fas fa-trophy mr-2" data-id="bjmrr6g5" data-line="563-563"></i> Bảng xếp hạng
+        </button>
+      </div>
+
+      <div class="mt-8 bg-white rounded-2xl p-6 shadow-lg w-full max-w-lg" data-id="fmwpscbv" data-line="567-586">
+        <h3 class="text-xl font-bold text-center text-gray-700 mb-4" data-id="ysluq96l" data-line="568-568">Tiến độ học tập</h3>
+        <div class="flex justify-between mb-4" data-id="rxlkdxgc" data-line="569-582">
+          <div class="text-center" data-id="pbin3ge7" data-line="570-573">
+            <p class="text-3xl font-bold text-blue-500" data-id="2is0yyj9" data-line="571-571">5</p>
+            <p class="text-gray-500" data-id="zvwuhuui" data-line="572-572">Ngày liên tục</p>
+          </div>
+          <div class="text-center" data-id="4cf3twkb" data-line="574-577">
+            <p class="text-3xl font-bold text-green-500" data-id="egfa0vyx" data-line="575-575">42</p>
+            <p class="text-gray-500" data-id="20jlxlgb" data-line="576-576">Câu đúng</p>
+          </div>
+          <div class="text-center" data-id="fseht5yz" data-line="578-581">
+            <p class="text-3xl font-bold text-purple-500" data-id="rssvxgi7" data-line="579-579">7</p>
+            <p class="text-gray-500" data-id="l1iep8ms" data-line="580-580">Huy hiệu</p>
+          </div>
+        </div>
+        <button onclick="showScreen('rewardsScreen')" class="w-full bg-gradient-to-r from-pink-400 to-pink-500 text-white font-bold py-3 rounded-xl hover:scale-105 transition-all" data-id="y2cxj3w7" data-line="583-585">
+          Xem phần thưởng tiếp theo <i class="fas fa-arrow-right ml-2" data-id="dxkcyf6s" data-line="584-584"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 text-gray-500" data-id="8d9j3mc6" data-line="589-591">
+      <p data-id="l4p1hpjq" data-line="590-590">© 2025 AI Play. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- Leaderboard Screen -->
+  <div id="leaderboardScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="hcna8c6u" data-line="595-694">
+    <div class="flex justify-between items-center mb-8" data-id="rvyp5mpr" data-line="596-602">
+      <button onclick="showScreen('homeScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="9f6nzveo" data-line="597-599">
+        <i class="fas fa-arrow-left mr-2" data-id="jbef3ii4" data-line="598-598"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-purple-600" data-id="qwlf43yl" data-line="600-600">Bảng xếp hạng</h2>
+      <div class="w-10" data-id="3l95662x" data-line="601-601"></div> <!-- Spacer -->
+    </div>
+
+    <div class="mb-6 flex justify-center space-x-4" data-id="ywev0azf" data-line="604-614">
+      <button class="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold py-2 px-6 rounded-full" data-id="wfjafbz6" data-line="605-607">
+        Toán học
+      </button>
+      <button class="bg-gradient-to-r from-green-400 to-green-500 text-white font-bold py-2 px-6 rounded-full" data-id="hwlzblf1" data-line="608-610">
+        Tiếng Việt
+      </button>
+      <button class="bg-gradient-to-r from-purple-400 to-purple-500 text-white font-bold py-2 px-6 rounded-full" data-id="cwi8qfmr" data-line="611-613">
+        Tuần này
+      </button>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 shadow-lg mb-8" data-id="mdfq9yfq" data-line="616-686">
+      <div class="leaderboard-row flex items-center justify-between p-4 rounded-xl mb-2" data-id="h0xghfzq" data-line="617-634">
+        <div class="flex items-center" data-id="k4hjhhfr" data-line="618-625">
+          <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4" data-id="mvbqcf2k" data-line="619-619">1</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-12 h-12 rounded-full mr-4" alt="Avatar Minh" data-id="jfzniz2b" data-line="620-620">
+          <div data-id="hxsq1s1p" data-line="621-624">
+            <p class="font-bold" data-id="usdnzivy" data-line="622-622">Minh Anh</p>
+            <p class="text-sm text-gray-500" data-id="lgwv1buj" data-line="623-623">Lớp 1A</p>
+          </div>
+        </div>
+        <div class="text-right" data-id="ibvh3upo" data-line="626-633">
+          <p class="font-bold text-xl" data-id="f854j0b6" data-line="627-627">980 điểm</p>
+          <div class="flex justify-end" data-id="0sx1urg3" data-line="628-632">
+            <i class="fas fa-medal text-yellow-400 ml-1 star-sparkle" data-id="6pzps4z9" data-line="629-629"></i>
+            <i class="fas fa-medal text-gray-300 ml-1" data-id="ali9xpox" data-line="630-630"></i>
+            <i class="fas fa-medal text-amber-700 ml-1" data-id="qpmeeeu6" data-line="631-631"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="leaderboard-row flex items-center justify-between p-4 rounded-xl mb-2" data-id="13e1rlbi" data-line="636-652">
+        <div class="flex items-center" data-id="bt2sbw54" data-line="637-644">
+          <div class="bg-gradient-to-r from-gray-300 to-gray-400 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4" data-id="2p22q6tx" data-line="638-638">2</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-12 h-12 rounded-full mr-4" alt="Avatar Quốc" data-id="de8o4o8x" data-line="639-639">
+          <div data-id="d2m6q54x" data-line="640-643">
+            <p class="font-bold" data-id="6eermsop" data-line="641-641">Quốc Bảo</p>
+            <p class="text-sm text-gray-500" data-id="v7fw3n1b" data-line="642-642">Lớp 1B</p>
+          </div>
+        </div>
+        <div class="text-right" data-id="m7r7b77z" data-line="645-651">
+          <p class="font-bold text-xl" data-id="b6o4t1r8" data-line="646-646">920 điểm</p>
+          <div class="flex justify-end" data-id="yrrdk9hd" data-line="647-650">
+            <i class="fas fa-medal text-yellow-400 ml-1" data-id="ab4fo4c6" data-line="648-648"></i>
+            <i class="fas fa-medal text-gray-300 ml-1" data-id="un4dcf7m" data-line="649-649"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="leaderboard-row flex items-center justify-between p-4 rounded-xl mb-2" data-id="mxx4wtib" data-line="654-670">
+        <div class="flex items-center" data-id="3umfazps" data-line="655-662">
+          <div class="bg-gradient-to-r from-amber-700 to-amber-800 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4" data-id="16zq6ih8" data-line="656-656">3</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-12 h-12 rounded-full mr-4" alt="Avatar Ngọc" data-id="633spsw4" data-line="657-657">
+          <div data-id="4kisot91" data-line="658-661">
+            <p class="font-bold" data-id="g3oifipv" data-line="659-659">Ngọc Hà</p>
+            <p class="text-sm text-gray-500" data-id="hhiclwv3" data-line="660-660">Lớp 1A</p>
+          </div>
+        </div>
+        <div class="text-right" data-id="xzahx3vy" data-line="663-669">
+          <p class="font-bold text-xl" data-id="2jvv1aio" data-line="664-664">890 điểm</p>
+          <div class="flex justify-end" data-id="95kfnydz" data-line="665-668">
+            <i class="fas fa-medal text-yellow-400 ml-1" data-id="pn7w2p3c" data-line="666-666"></i>
+            <i class="fas fa-medal text-gray-300 ml-1" data-id="bpklyald" data-line="667-667"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- More rows -->
+      <div class="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50" data-id="7m6w5pdl" data-line="673-685">
+        <div class="flex items-center" data-id="na7k6p9l" data-line="674-681">
+          <div class="bg-gray-200 text-gray-600 font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4" data-id="fx0iyvi5" data-line="675-675">4</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-12 h-12 rounded-full mr-4" alt="Avatar Tuấn" data-id="c0cao0uj" data-line="676-676">
+          <div data-id="gbkvqtq2" data-line="677-680">
+            <p class="font-bold" data-id="mzopydbv" data-line="678-678">Tuấn Kiệt</p>
+            <p class="text-sm text-gray-500" data-id="l2xh791e" data-line="679-679">Lớp 1C</p>
+          </div>
+        </div>
+        <div class="text-right" data-id="1gdq0ivx" data-line="682-684">
+          <p class="font-bold text-xl" data-id="4jqkag4t" data-line="683-683">850 điểm</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" data-id="to0ivp8j" data-line="688-693">
+      <p class="text-gray-500 mb-4" data-id="lch2qrmu" data-line="689-689">Bạn đang xếp hạng thứ <span class="font-bold text-purple-500" data-id="fw5ms0ia" data-line="689-689">15</span> trên 50 học sinh</p>
+      <button onclick="showScreen('gameScreen')" class="bg-gradient-to-r from-green-400 to-green-500 text-white font-bold py-3 px-8 rounded-full hover:scale-105 transition-all" data-id="7mfrilyg" data-line="690-692">
+        <i class="fas fa-trophy mr-2" data-id="m74uw0hx" data-line="691-691"></i> Tiếp tục học để lên hạng!
+      </button>
+    </div>
+  </div>
+
+  <!-- Rewards Screen -->
+  <div id="rewardsScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="ge1d8zrr" data-line="697-819">
+    <div class="flex justify-between items-center mb-8" data-id="dt52sl4t" data-line="698-704">
+      <button onclick="showScreen('homeScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="xzcl6of8" data-line="699-701">
+        <i class="fas fa-arrow-left mr-2" data-id="m8pyg3tv" data-line="700-700"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-purple-600" data-id="x0p929bv" data-line="702-702">Hệ thống phần thưởng</h2>
+      <div class="w-10" data-id="sb8el9ke" data-line="703-703"></div> <!-- Spacer -->
+    </div>
+
+    <div class="mb-8" data-id="b7pb6slq" data-line="706-756">
+      <div class="flex justify-between items-center mb-4" data-id="b0zlg2ja" data-line="707-714">
+        <h3 class="text-2xl font-bold text-blue-500" data-id="y8or1kyq" data-line="708-708">Huy chương chăm chỉ</h3>
+        <div class="flex" data-id="qta46jax" data-line="709-713">
+          <div class="bg-yellow-100 rounded-full px-4 py-1 text-yellow-700 font-bold" data-id="r5tt8935" data-line="710-712">
+            <i class="fas fa-fire mr-1" data-id="gpalqily" data-line="711-711"></i> 5/10 ngày
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-8" data-id="71lhztes" data-line="716-755">
+        <div class="reward-badge bg-gradient-to-br from-yellow-100 to-yellow-50 p-6 rounded-2xl text-center" data-id="r9lxr0gv" data-line="717-728">
+          <div class="bg-yellow-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" data-id="2m7mos63" data-line="718-720">
+            <i class="fas fa-medal text-4xl text-white wiggle" data-id="tk0boyfw" data-line="719-719"></i>
+          </div>
+          <h4 class="font-bold text-yellow-600 mb-2" data-id="h3e0vkr2" data-line="721-721">Huy chương đồng</h4>
+          <p class="text-sm text-gray-600" data-id="ier8eha2" data-line="722-722">Hoàn thành 10 ngày</p>
+          <div class="mt-3" data-id="qyfsrsa9" data-line="723-727">
+            <div class="w-full bg-gray-200 rounded-full h-2" data-id="q8eck67k" data-line="724-726">
+              <div class="bg-yellow-500 h-2 rounded-full" style="width: 50%" data-id="yxjez8mx" data-line="725-725"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-badge bg-gradient-to-br from-gray-100 to-gray-50 p-6 rounded-2xl text-center" data-id="gza5z2ta" data-line="730-741">
+          <div class="bg-gray-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" data-id="8kus0dfo" data-line="731-733">
+            <i class="fas fa-medal text-4xl text-white wiggle" style="animation-delay: 0.2s;" data-id="ikru46hu" data-line="732-732"></i>
+          </div>
+          <h4 class="font-bold text-gray-600 mb-2" data-id="3llm5z6h" data-line="734-734">Huy chương bạc</h4>
+          <p class="text-sm text-gray-600" data-id="fvqnbbg3" data-line="735-735">Hoàn thành 20 ngày</p>
+          <div class="mt-3" data-id="p5j6m4p3" data-line="736-740">
+            <div class="w-full bg-gray-200 rounded-full h-2" data-id="63lozc7w" data-line="737-739">
+              <div class="bg-gray-500 h-2 rounded-full" style="width: 25%" data-id="8rynze5j" data-line="738-738"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reward-badge bg-gradient-to-br from-amber-100 to-amber-50 p-6 rounded-2xl text-center" data-id="7qcvb78d" data-line="743-754">
+          <div class="bg-amber-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" data-id="n9cnx05r" data-line="744-746">
+            <i class="fas fa-medal text-4xl text-white wiggle" style="animation-delay: 0.4s;" data-id="cenzgp58" data-line="745-745"></i>
+          </div>
+          <h4 class="font-bold text-amber-700 mb-2" data-id="fmw33wpo" data-line="747-747">Huy chương vàng</h4>
+          <p class="text-sm text-gray-600" data-id="o36sx07j" data-line="748-748">Hoàn thành 40 ngày</p>
+          <div class="mt-3" data-id="us4w7u6s" data-line="749-753">
+            <div class="w-full bg-gray-200 rounded-full h-2" data-id="sypxpyqs" data-line="750-752">
+              <div class="bg-amber-700 h-2 rounded-full" style="width: 12.5%" data-id="ubn48ggb" data-line="751-751"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8" data-id="waif2qtk" data-line="758-786">
+      <h3 class="text-2xl font-bold text-purple-500 mb-4" data-id="qgzfbc6l" data-line="759-759">Bộ sưu tập sticker</h3>
+      
+      <div class="grid grid-cols-4 gap-4" data-id="dy1swn42" data-line="761-785">
+        <div class="bg-white p-4 rounded-2xl shadow-md text-center" data-id="6zu1i040" data-line="762-766">
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-16 h-16 mx-auto mb-2" alt="Sticker 1" data-id="jhdw7d6m" data-line="763-763">
+          <p class="font-bold text-sm" data-id="3ejr260l" data-line="764-764">Sticker 1</p>
+          <div class="text-green-500" data-id="8ip1n3wa" data-line="765-765"><i class="fas fa-check-circle" data-id="trml7yud" data-line="765-765"></i> Đã mở khóa</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-2xl shadow-md text-center" data-id="p8d89b97" data-line="768-772">
+          <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" class="w-16 h-16 mx-auto mb-2" alt="Sticker 2" data-id="bacbllj2" data-line="769-769">
+          <p class="font-bold text-sm" data-id="ac7peqau" data-line="770-770">Sticker 2</p>
+          <div class="text-green-500" data-id="jyd463dh" data-line="771-771"><i class="fas fa-check-circle" data-id="ldvzu9ab" data-line="771-771"></i> Đã mở khóa</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-2xl shadow-md text-center" data-id="nsrwbidx" data-line="774-778">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-16 h-16 mx-auto mb-2" alt="Sticker 3" data-id="i9r4zu9y" data-line="775-775">
+          <p class="font-bold text-sm" data-id="nt71oscr" data-line="776-776">Sticker 3</p>
+          <div class="text-yellow-500" data-id="2yxkr62i" data-line="777-777"><i class="fas fa-lock" data-id="6usbg0v2" data-line="777-777"></i> Mở khóa sau 5 ngày</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-2xl shadow-md text-center" data-id="k0xcxld4" data-line="780-784">
+          <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-16 h-16 mx-auto mb-2 opacity-30" alt="Sticker Khóa" data-id="nsk82uv8" data-line="781-781">
+          <p class="font-bold text-sm" data-id="61bg9qx4" data-line="782-782">Sticker 4</p>
+          <div class="text-red-500" data-id="l3dy19l1" data-line="783-783"><i class="fas fa-lock" data-id="m47yei8s" data-line="783-783"></i> Chưa mở khóa</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-id="e7qu4ohl" data-line="788-818">
+      <h3 class="text-2xl font-bold text-pink-500 mb-4" data-id="prmvm2pz" data-line="789-789">Skin giao diện</h3>
+      
+      <div class="grid grid-cols-2 gap-4 mb-6" data-id="m8ljptah" data-line="791-817">
+        <div class="bg-white p-4 rounded-2xl shadow-md" data-id="t07sjhxc" data-line="792-803">
+          <div class="bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl p-4 mb-3" data-id="55bq6qru" data-line="793-799">
+            <p class="font-bold text-blue-600" data-id="e5l8zs18" data-line="794-794">Skin Rừng Cổ Tích</p>
+            <div class="flex justify-between items-center mt-2" data-id="wug75ik8" data-line="795-798">
+              <div class="text-yellow-500" data-id="4tzu2k48" data-line="796-796"><i class="fas fa-star" data-id="jl06rygv" data-line="796-796"></i> 50 điểm</div>
+              <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-full" data-id="7ci7rb8u" data-line="797-797">Áp dụng</button>
+            </div>
+          </div>
+          <div class="flex justify-center" data-id="01rj4n3b" data-line="800-802">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-16 h-16" alt="Theme Rừng" data-id="ok85tj16" data-line="801-801">
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-2xl shadow-md" data-id="w9n0259i" data-line="805-816">
+          <div class="bg-gradient-to-br from-pink-100 to-pink-50 rounded-xl p-4 mb-3" data-id="wo5sr7jp" data-line="806-812">
+            <p class="font-bold text-pink-600" data-id="8tyd7c7l" data-line="807-807">Skin Công Chúa</p>
+            <div class="flex justify-between items-center mt-2" data-id="0l9qnmof" data-line="808-811">
+              <div class="text-gray-500" data-id="4g3o1yv0" data-line="809-809"><i class="fas fa-lock" data-id="xjsknohb" data-line="809-809"></i> Cần 10 ngày</div>
+              <button class="bg-gray-300 text-gray-600 text-sm py-1 px-3 rounded-full cursor-not-allowed" data-id="sxdsv7kj" data-line="810-810">Khóa</button>
+            </div>
+          </div>
+          <div class="flex justify-center" data-id="7xlywm4t" data-line="813-815">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" class="w-16 h-16 opacity-30" alt="Theme Khóa" data-id="nzw4g7w4" data-line="814-814">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rules Screen -->
+  <div id="rulesScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="c27wv7iy" data-line="822-878">
+    <div class="flex justify-between items-center mb-8" data-id="hxlteg5j" data-line="823-829">
+      <button onclick="showScreen('homeScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="8lplqcn7" data-line="824-826">
+        <i class="fas fa-arrow-left mr-2" data-id="xj4z1jx9" data-line="825-825"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-purple-600" data-id="iuy03kfh" data-line="827-827">Luật chơi</h2>
+      <div class="w-10" data-id="cygvw3x2" data-line="828-828"></div> <!-- Spacer -->
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 shadow-lg mb-8" data-id="7q4oxp2x" data-line="831-871">
+      <div class="flex items-start mb-6" data-id="e2z59u7n" data-line="832-840">
+        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4" data-id="53f5052k" data-line="833-835">
+          <i class="fas fa-heart text-xl text-blue-500" data-id="mre5wnja" data-line="834-834"></i>
+        </div>
+        <div data-id="34c94k2i" data-line="836-839">
+          <h3 class="text-xl font-bold text-blue-500 mb-2" data-id="bj3ijfiw" data-line="837-837">Trái tim</h3>
+          <p class="text-gray-600" data-id="1oojrcyu" data-line="838-838">Mỗi lần trả lời sai, bạn sẽ mất 1 trái tim. Khi hết tim, bài học sẽ kết thúc và bạn phải bắt đầu lại.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start mb-6" data-id="r9db0msu" data-line="842-850">
+        <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mr-4" data-id="jby5xvna" data-line="843-845">
+          <i class="fas fa-star text-xl text-yellow-500" data-id="jj1v0tal" data-line="844-844"></i>
+        </div>
+        <div data-id="odl2q7u5" data-line="846-849">
+          <h3 class="text-xl font-bold text-yellow-500 mb-2" data-id="2k9oppqv" data-line="847-847">Ngôi sao trợ giúp</h3>
+          <p class="text-gray-600" data-id="do2412mw" data-line="848-848">Dùng ngôi sao để nhận gợi ý khi gặp câu hỏi khó. Bạn có 3 sao mỗi bài học.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start mb-6" data-id="u69xdauf" data-line="852-860">
+        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4" data-id="ljssufl4" data-line="853-855">
+          <i class="fas fa-trophy text-xl text-purple-500" data-id="lc3vxmj3" data-line="854-854"></i>
+        </div>
+        <div data-id="kohccpqq" data-line="856-859">
+          <h3 class="text-xl font-bold text-purple-500 mb-2" data-id="l78h5nxx" data-line="857-857">Điểm số</h3>
+          <p class="text-gray-600" data-id="qnmz2obn" data-line="858-858">Trả lời đúng càng nhiều, điểm số càng cao. Điểm số sẽ giúp bạn lên bảng xếp hạng và nhận phần thưởng.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start" data-id="fxectnfq" data-line="862-870">
+        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4" data-id="klirryw1" data-line="863-865">
+          <i class="fas fa-medal text-xl text-green-500" data-id="yct6we9z" data-line="864-864"></i>
+        </div>
+        <div data-id="qncg2omm" data-line="866-869">
+          <h3 class="text-xl font-bold text-green-500 mb-2" data-id="is0aasa8" data-line="867-867">Huy hiệu</h3>
+          <p class="text-gray-600" data-id="u2e8jxyl" data-line="868-868">Học liên tục nhiều ngày để nhận huy hiệu chăm chỉ và mở khóa sticker, skin đặc biệt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" data-id="531rnq50" data-line="873-877">
+      <button onclick="showScreen('homeScreen')" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full hover:scale-105 transition-all" data-id="03ltuyn6" data-line="874-876">
+        <i class="fas fa-check-circle mr-2" data-id="qd01b1fc" data-line="875-875"></i> Đã hiểu, bắt đầu học ngay!
+      </button>
+    </div>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen container mx-auto px-4 py-8 min-h-screen flex flex-col" data-id="kp8ode2z" data-line="881-924">
+    <div class="flex justify-between items-center mb-8" data-id="4l3kxr1n" data-line="882-888">
+      <button onclick="showScreen('homeScreen')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full" data-id="7f4vl2kv" data-line="883-885">
+        <i class="fas fa-arrow-left mr-2" data-id="1coe6czy" data-line="884-884"></i> Trở về
+      </button>
+      <h2 class="text-4xl font-bold text-purple-600" data-id="4ickbzmw" data-line="886-886">Đăng nhập</h2>
+      <div class="w-10" data-id="mej89yo1" data-line="887-887"></div> <!-- Spacer -->
+    </div>
+
+    <div class="flex-grow flex items-center justify-center" data-id="1nej68s1" data-line="890-923">
+      <div class="bg-white rounded-3xl p-8 shadow-xl w-full max-w-md" data-id="gb3dr34q" data-line="891-922">
+        <div class="text-center mb-8" data-id="xcgjg0ff" data-line="892-895">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-24 h-24 mx-auto mb-4 happy-dance" alt="Robot Đăng nhập" data-id="2juafc1p" data-line="893-893">
+          <p class="text-xl text-gray-600" data-id="74lr1o1g" data-line="894-894">Đăng nhập để lưu tiến độ và nhận phần thưởng!</p>
+        </div>
+
+        <div class="mb-6" data-id="kza8rgms" data-line="897-900">
+          <label class="block text-gray-700 font-bold mb-2" for="username" data-id="7f537bdz" data-line="898-898">Tên đăng nhập</label>
+          <input id="username" type="text" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none" placeholder="Nhập tên của bé" data-id="fet9qufe" data-line="899-899">
+        </div>
+
+        <div class="mb-6" data-id="zq9vpq4l" data-line="902-905">
+          <label class="block text-gray-700 font-bold mb-2" for="password" data-id="0zbrcrru" data-line="903-903">Mật khẩu</label>
+          <input id="password" type="password" class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none" placeholder="Nhập mật khẩu" data-id="clou3ids" data-line="904-904">
+        </div>
+
+        <div class="flex justify-between items-center mb-6" data-id="sr5tfuar" data-line="907-913">
+          <div class="flex items-center" data-id="nviceztq" data-line="908-911">
+            <input id="remember" type="checkbox" class="w-4 h-4 mr-2" data-id="a6q5ouvj" data-line="909-909">
+            <label for="remember" class="text-gray-600" data-id="s6qiwhaz" data-line="910-910">Ghi nhớ đăng nhập</label>
+          </div>
+          <a href="#" class="text-purple-500 hover:underline" data-id="mn97b3br" data-line="912-912">Quên mật khẩu?</a>
+        </div>
+
+        <button onclick="showScreen('homeScreen')" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 rounded-xl hover:scale-105 transition-all mb-4" data-id="q621zvtz" data-line="915-917">
+          Đăng nhập
+        </button>
+
+        <div class="text-center" data-id="iwneuk7u" data-line="919-921">
+          <p class="text-gray-600" data-id="h4vw69q5" data-line="920-920">Chưa có tài khoản? <a href="#" class="text-purple-500 hover:underline font-bold" data-id="292makhr" data-line="920-920">Đăng ký ngay</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script data-id="69cy2h35" data-line="926-1224">
+    // Navigation functions
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+      });
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    function showMathModeScreen() {
+      showScreen('mathModeScreen');
+    }
+
+    function startWriteMode() {
+      showScreen('gameScreen');
+      document.getElementById('writeModeTab').click();
+    }
+
+    function startCameraMode() {
+      showScreen('gameScreen');
+      document.getElementById('cameraModeTab').click();
+    }
+
+    function startVietnameseMode() {
+      showScreen('gameScreen');
+      document.getElementById('writeModeTab').click();
+      // Change UI to Vietnamese mode
+      document.getElementById('questionText').textContent = "Viết chữ 'A'";
+    }
+
+    function continuePlaying() {
+      // Reset game state and continue
+      showScreen('gameScreen');
+    }
+
+    // Original game script
+    document.addEventListener('DOMContentLoaded', function() {
+      // Game state
+      let gameState = {
+        mode: 'write',
+        hearts: 5,
+        helpStars: 3,
+        currentQuestion: 3,
+        totalQuestions: 10,
+        isCelebrating: false
+      };
+
+      // DOM elements
+      const writeModeContent = document.getElementById('writeModeContent');
+      const cameraModeContent = document.getElementById('cameraModeContent');
+      const writeModeTab = document.getElementById('writeModeTab');
+      const cameraModeTab = document.getElementById('cameraModeTab');
+      const heartsContainer = document.querySelectorAll('.fa-heart');
+      const starsContainer = document.querySelectorAll('.fa-star');
+      const resetBtn = document.getElementById('resetBtn');
+      const helpBtn = document.getElementById('helpBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const exitBtn = document.getElementById('exitBtn');
+      const exitModal = document.getElementById('exitModal');
+      const confirmExitBtn = document.getElementById('confirmExitBtn');
+      const cancelExitBtn = document.getElementById('cancelExitBtn');
+      const celebrationModal = document.getElementById('celebrationModal');
+      const closeCelebrationBtn = document.getElementById('closeCelebrationBtn');
+      const feedbackBubble = document.getElementById('feedbackBubble');
+      const questionText = document.getElementById('questionText');
+      const confettiContainer = document.getElementById('confettiContainer');
+      const recognizedText = document.getElementById('recognizedText');
+      const cameraRecognizedText = document.getElementById('cameraRecognizedText');
+      const captureBtn = document.getElementById('captureBtn');
+      const mascot = document.querySelector('.bounce');
+
+      // Initialize game
+      function initGame() {
+        // Set initial mode based on gameState
+        if (gameState.mode === 'write') {
+          showWriteMode();
+        } else {
+          showCameraMode();
+        }
+
+        // Update UI based on game state
+        updateHearts();
+        updateStars();
+
+        // Event listeners
+        writeModeTab.addEventListener('click', showWriteMode);
+        cameraModeTab.addEventListener('click', showCameraMode);
+        resetBtn.addEventListener('click', resetAction);
+        helpBtn.addEventListener('click', helpAction);
+        submitBtn.addEventListener('click', submitAction);
+        exitBtn.addEventListener('click', () => exitModal.classList.remove('hidden'));
+        confirmExitBtn.addEventListener('click', confirmExit);
+        cancelExitBtn.addEventListener('click', () => exitModal.classList.add('hidden'));
+        closeCelebrationBtn.addEventListener('click', () => {
+          celebrationModal.classList.add('hidden');
+          gameState.isCelebrating = false;
+          showScreen('resultsScreen');
+        });
+        captureBtn.addEventListener('click', captureAction);
+
+        // Mock question change
+        setInterval(() => {
+          if (!gameState.isCelebrating) {
+            recognizedText.textContent = Math.floor(Math.random() * 10).toString();
+            cameraRecognizedText.textContent = Math.floor(Math.random() * 10).toString();
+          }
+        }, 1500);
+      }
+
+      function showWriteMode() {
+        gameState.mode = 'write';
+        writeModeContent.classList.remove('hidden');
+        cameraModeContent.classList.add('hidden');
+        writeModeTab.classList.add('active');
+        cameraModeTab.classList.remove('active');
+      }
+
+      function showCameraMode() {
+        gameState.mode = 'camera';
+        writeModeContent.classList.add('hidden');
+        cameraModeContent.classList.remove('hidden');
+        writeModeTab.classList.remove('active');
+        cameraModeTab.classList.add('active');
+      }
+
+      function updateHearts() {
+        heartsContainer.forEach((heart, index) => {
+          if (index < gameState.hearts) {
+            heart.classList.remove('text-gray-300');
+            heart.classList.add('text-red-500');
+          } else {
+            heart.classList.remove('text-red-500');
+            heart.classList.add('text-gray-300');
+          }
+        });
+      }
+
+      function updateStars() {
+        starsContainer.forEach((star, index) => {
+          if (index < gameState.helpStars) {
+            star.classList.remove('text-gray-300');
+            star.classList.add('text-yellow-400');
+          } else {
+            star.classList.remove('text-yellow-400');
+            star.classList.add('text-gray-300');
+          }
+        });
+      }
+
+      function resetAction() {
+        if (gameState.mode === 'write') {
+          document.querySelector('.handwriting-pad').classList.add('shake');
+          setTimeout(() => {
+            document.querySelector('.handwriting-pad').classList.remove('shake');
+          }, 500);
+        } else {
+          document.querySelector('.camera-frame').classList.add('shake');
+          setTimeout(() => {
+            document.querySelector('.camera-frame').classList.remove('shake');
+          }, 500);
+        }
+      }
+
+      function helpAction() {
+        if (gameState.helpStars > 0) {
+          gameState.helpStars--;
+          updateStars();
+          feedbackBubble.textContent = gameState.mode === 'write' 
+            ? "Thử viết số 8 nhé!" 
+            : "Giơ 8 ngón tay nào!";
+          feedbackBubble.classList.remove('hidden');
+          setTimeout(() => {
+            feedbackBubble.classList.add('hidden');
+          }, 3000);
+        }
+      }
+
+      function captureAction() {
+        document.querySelector('.camera-frame').classList.add('flash');
+        setTimeout(() => {
+          document.querySelector('.camera-frame').classList.remove('flash');
+        }, 300);
+        
+        // Simulate camera capture
+        setTimeout(() => {
+          cameraRecognizedText.textContent = Math.floor(Math.random() * 10).toString();
+        }, 500);
+      }
+
+      function submitAction() {
+        // Randomly determine if answer is correct (for demo)
+        const isCorrect = Math.random() > 0.3;
+        
+        if (isCorrect) {
+          // Correct answer
+          mascot.classList.add('happy-dance');
+          createConfetti();
+          feedbackBubble.textContent = "Tuyệt vời!";
+          feedbackBubble.classList.remove('hidden');
+          setTimeout(() => {
+            feedbackBubble.classList.add('hidden');
+            mascot.classList.remove('happy-dance');
+            nextQuestion();
+          }, 1500);
+        } else {
+          // Wrong answer
+          mascot.classList.add('robot-sad');
+          if (gameState.hearts > 0) {
+            gameState.hearts--;
+            updateHearts();
+            if (gameState.mode === 'write') {
+              document.querySelector('.handwriting-pad').classList.add('shake');
+            } else {
+              document.querySelector('.camera-frame').classList.add('shake');
+            }
+            feedbackBubble.textContent = "Thử lại nhé!";
+            feedbackBubble.classList.remove('hidden');
+            setTimeout(() => {
+              if (gameState.mode === 'write') {
+                document.querySelector('.handwriting-pad').classList.remove('shake');
+              } else {
+                document.querySelector('.camera-frame').classList.remove('shake');
+              }
+              feedbackBubble.classList.add('hidden');
+              mascot.classList.remove('robot-sad');
+            }, 1000);
+          } else {
+            // No hearts left
+            nextQuestion();
+            mascot.classList.remove('robot-sad');
+          }
+        }
+      }
+
+      function nextQuestion() {
+        if (gameState.currentQuestion < gameState.totalQuestions) {
+          gameState.currentQuestion++;
+          questionText.textContent = `${gameState.currentQuestion} + ... = ${gameState.currentQuestion + 5}`;
+          gameState.hearts = 5;
+          updateHearts();
+        } else {
+          // Game completed
+          celebrationModal.classList.remove('hidden');
+          gameState.isCelebrating = true;
+        }
+      }
+
+      function confirmExit() {
+        exitModal.classList.add('hidden');
+        showScreen('homeScreen');
+      }
+
+      function createConfetti() {
+        // Clear existing confetti
+        confettiContainer.innerHTML = '';
+        
+        // Create new confetti
+        const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+        const shapes = ['★', '●', '◆', '▲', '♥', '✿', '❀', '✧'];
+        
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.top = -10 + 'px';
+          confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.fontSize = Math.random() * 20 + 10 + 'px';
+          confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          
+          const animationDuration = Math.random() * 3 + 2;
+          confetti.style.animation = `fall ${animationDuration}s ease-out forwards`;
+          confetti.style.animationDelay = Math.random() * 0.5 + 's';
+          
+          confettiContainer.appendChild(confetti);
+          
+          // Remove confetti after animation
+          setTimeout(() => {
+            confetti.remove();
+          }, animationDuration * 1000);
+        }
+        
+        // Add CSS for falling animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+          @keyframes fall {
+            to {
+              transform: translateY(100vh) rotate(360deg);
+              opacity: 0;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      // Initialize the game
+      initGame();
+    });
+  </script>
+ <!-- New Screen 1: Write Dictation -->
+  <div id="writeDictationScreen" class="screen container mx-auto px-4 py-8 min-h-screen" data-id="w9fzghpw" data-line="1226-1271">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="ppc5e3mn" data-line="1227-1271">
+      <!-- Title Block -->
+      <div class="text-center mb-8" data-id="mf0klj26" data-line="1229-1232">
+        <h1 class="text-5xl font-bold text-blue-600 mb-4" data-id="mp88h1h1" data-line="1230-1230">Viết chữ chính tả</h1>
+        <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="nik3cvpb" data-line="1231-1231"></div>
+      </div>
+
+      <!-- Goal Section -->
+      <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="q5zoa5i6" data-line="1235-1240">
+        <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="85pdqwx5" data-line="1236-1238">
+          <i class="fas fa-bullseye mr-3 text-blue-600" data-id="s709is12" data-line="1237-1237"></i> Mục tiêu
+        </h2>
+        <p class="text-lg text-gray-700" data-id="0mqimkia" data-line="1239-1239">Luyện nghe và viết lại chính xác các từ tiếng Việt. Giúp bé nhận biết mặt chữ và luyện viết đẹp.</p>
+      </div>
+
+      <!-- Gameplay Steps -->
+      <div class="bg-purple-100 rounded-2xl p-6 mb-8" data-id="x0q17y1l" data-line="1243-1270">
+        <h2 class="text-2xl font-bold text-purple-700 mb-3 flex items-center" data-id="ixaq5jhe" data-line="1244-1246">
+          <i class="fas fa-gamepad mr-3 text-purple-600" data-id="3oaqod6y" data-line="1245-1245"></i> Cách chơi
+        </h2>
+        <div class="space-y-4" data-id="1lbep7py" data-line="1247-1269">
+          <div class="flex items-start" data-id="d45pmkxf" data-line="1248-1254">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="0vets0kn" data-line="1249-1249">1</div>
+            <div class="flex items-center" data-id="pj277cxw" data-line="1250-1253">
+              <span class="text-2xl mr-2" data-id="ye82sx4g" data-line="1251-1251">🔈</span>
+              <p class="text-lg text-gray-700" data-id="1pu71v3y" data-line="1252-1252">Nghe phát âm từ vựng bằng cách nhấn nút phát âm</p>
+            </div>
+          </div>
+          <div class="flex items-start" data-id="hy9uky87" data-line="1255-1261">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="yhlkl3po" data-line="1256-1256">2</div>
+            <div class="flex items-center" data-id="ht5fz9tk" data-line="1257-1260">
+              <span class="text-2xl mr-2" data-id="cs025slk" data-line="1258-1258">✍️</span>
+              <p class="text-lg text-gray-700" data-id="25mf3hvi" data-line="1259-1259">Viết lại từ vừa nghe vào ô bên dưới bằng ngón tay</p>
+            </div>
+          </div>
+          <div class="flex items-start" data-id="hkslltdz" data-line="1262-1268">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="jfx537ez" data-line="1263-1263">3</div>
+            <div class="flex items-center" data-id="kjfailux" data-line="1264-1267">
+              <span class="text-2xl mr-2" data-id="6tjx5wtj" data-line="1265-1265">✅</span>
+              <p class="text-lg text-gray-700" data-id="fcmnr89g" data-line="1266-1266">Nhấn "Kiểm tra" để xem kết quả</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div></div>
+<div class="min-h-screen" data-id="6l47m857" data-line="43-578">
+  <div id="writeDictationScreen" class="container mx-auto px-4 py-8 min-h-screen" data-id="z8qpvkhp" data-line="45-144">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="60ccu16h" data-line="46-143">
+      <div class="text-center mb-8" data-id="028u8tpe" data-line="47-50">
+        <h1 class="text-5xl font-bold text-blue-600 mb-4" data-id="ut3as2hx" data-line="48-48">Viết chữ chính tả</h1>
+        <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="xxtfljm2" data-line="49-49"></div>
+      </div>
+
+      <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="e2hbzzdg" data-line="52-57">
+        <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="8iq7hhew" data-line="53-55">
+          <i class="fas fa-bullseye mr-3 text-blue-600" data-id="p7jl60re" data-line="54-54"></i> Mục tiêu
+        </h2>
+        <p class="text-lg text-gray-700" data-id="73vyl3yo" data-line="56-56">Luyện nghe và viết lại chính xác các từ tiếng Việt. Giúp bé nhận biết mặt chữ và luyện viết đẹp.</p>
+      </div>
+
+      <div class="bg-purple-100 rounded-2xl p-6 mb-8" data-id="0ynd5ibe" data-line="59-86">
+        <h2 class="text-2xl font-bold text-purple-700 mb-3 flex items-center" data-id="6lkpahag" data-line="60-62">
+          <i class="fas fa-gamepad mr-3 text-purple-600" data-id="nwnlcgjl" data-line="61-61"></i> Cách chơi
+        </h2>
+        <div class="space-y-4" data-id="7i8u5wuc" data-line="63-85">
+          <div class="flex items-start" data-id="u76ofdzk" data-line="64-70">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="wtnvogch" data-line="65-65">1</div>
+            <div class="flex items-center" data-id="u58yx7ax" data-line="66-69">
+              <span class="text-2xl mr-2" data-id="8015tx29" data-line="67-67">🔈</span>
+              <p class="text-lg text-gray-700" data-id="70vmewiv" data-line="68-68">Nghe phát âm từ vựng bằng cách nhấn nút phát âm</p>
+            </div>
+          </div>
+          <div class="flex items-start" data-id="i37l78dg" data-line="71-77">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="crnbgpma" data-line="72-72">2</div>
+            <div class="flex items-center" data-id="pv822y74" data-line="73-76">
+              <span class="text-2xl mr-2" data-id="grnppe89" data-line="74-74">✍️</span>
+              <p class="text-lg text-gray-700" data-id="ek9vh6jz" data-line="75-75">Viết lại từ vừa nghe vào ô bên dưới bằng ngón tay</p>
+            </div>
+          </div>
+          <div class="flex items-start" data-id="c891kz23" data-line="78-84">
+            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="ksqodsh4" data-line="79-79">3</div>
+            <div class="flex items-center" data-id="ocp2z28n" data-line="80-83">
+              <span class="text-2xl mr-2" data-id="m22iuah5" data-line="81-81">✅</span>
+              <p class="text-lg text-gray-700" data-id="txzrb8v1" data-line="82-82">Nhấn "Kiểm tra" để xem kết quả</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-green-100 rounded-2xl p-6 mb-8" data-id="3ah9uyaz" data-line="88-120">
+        <h2 class="text-2xl font-bold text-green-700 mb-3 flex items-center" data-id="3ozld34h" data-line="89-91">
+          <i class="fas fa-lightbulb mr-3 text-green-600" data-id="cj5t5303" data-line="90-90"></i> Ví dụ
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6" data-id="mbnuwrd0" data-line="92-119">
+          <div class="bg-white rounded-xl p-4 shadow-md" data-id="mx9s79j2" data-line="93-105">
+            <div class="flex items-center mb-2" data-id="qkh67l05" data-line="94-97">
+              <i class="fas fa-volume-up text-blue-500 mr-2" data-id="zh7l42hw" data-line="95-95"></i>
+              <p class="font-semibold" data-id="belqlsbg" data-line="96-96">Nghe: "Bé"</p>
+            </div>
+            <div class="handwriting-preview bg-gray-100 rounded-lg h-32 flex items-center justify-center" data-id="jpo6kn8v" data-line="98-100">
+              <p class="text-4xl font-bold text-blue-500" data-id="pjfsg8we" data-line="99-99">Bé</p>
+            </div>
+            <div class="mt-2 flex items-center text-green-500" data-id="dhibz4xs" data-line="101-104">
+              <i class="fas fa-check-circle mr-1" data-id="nmgwysli" data-line="102-102"></i>
+              <p data-id="ivtmtcvw" data-line="103-103">Chính xác!</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md" data-id="w246k0t2" data-line="106-118">
+            <div class="flex items-center mb-2" data-id="tby3ule4" data-line="107-110">
+              <i class="fas fa-volume-up text-blue-500 mr-2" data-id="3pnneh9v" data-line="108-108"></i>
+              <p class="font-semibold" data-id="wo1bo8v1" data-line="109-109">Nghe: "Bé"</p>
+            </div>
+            <div class="handwriting-preview bg-gray-100 rounded-lg h-32 flex items-center justify-center" data-id="jofg8554" data-line="111-113">
+              <p class="text-4xl font-bold text-red-500" data-id="xntpvbes" data-line="112-112">Be</p>
+            </div>
+            <div class="mt-2 flex items-center text-red-500" data-id="rvzha4r9" data-line="114-117">
+              <i class="fas fa-times-circle mr-1" data-id="btiah3hh" data-line="115-115"></i>
+              <p data-id="wy452l3f" data-line="116-116">Thiếu dấu sắc</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-yellow-100 rounded-2xl p-6" data-id="zm5q7y31" data-line="122-142">
+        <div class="flex justify-center mb-6" data-id="bq838brh" data-line="123-127">
+          <button id="dictationAudioBtn" class="bg-blue-500 hover:bg-blue-600 text-white text-xl font-bold py-4 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center" data-id="hypvho7u" data-line="124-126">
+            <i class="fas fa-volume-up mr-2" data-id="6muyjus8" data-line="125-125"></i> Nghe từ
+          </button>
+        </div>
+        
+        <div class="handwriting-game mb-6" data-id="r434hilm" data-line="129-139">
+          <canvas id="dictationCanvas" class="handwriting-canvas w-full h-64 border-4 border-dashed border-blue-300 rounded-2xl bg-white shadow-inner" data-id="5uknr8x5" data-line="130-130"></canvas>
+          <div class="flex justify-center mt-4" data-id="xgg06a7g" data-line="131-138">
+            <button id="clearCanvasBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg mr-4" data-id="k4u8z83u" data-line="132-134">
+              <i class="fas fa-eraser mr-1" data-id="l38as5h3" data-line="133-133"></i> Xóa
+            </button>
+            <button id="submitDictationBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg" data-id="eujunq4x" data-line="135-137">
+              <i class="fas fa-check mr-1" data-id="zpq96s0p" data-line="136-136"></i> Kiểm tra
+            </button>
+          </div>
+        </div>
+        
+        <div id="dictationFeedback" class="hidden text-center text-2xl font-semibold p-4 rounded-xl" data-id="mf1zaxs7" data-line="141-141"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Color by Number -->
+  <div id="colorAnimalScreen" class="screen container mx-auto px-4 py-8 min-h-screen hidden" data-id="38xb7diw" data-line="147-256">
+    <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="u9yv41gu" data-line="148-255">
+      <div class="text-center mb-8" data-id="ych8fqdv" data-line="149-152">
+        <h1 class="text-5xl font-bold text-purple-600 mb-4" data-id="rg06yy58" data-line="150-150">Tô màu đúng cho con vật</h1>
+        <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="q3mgdwdj" data-line="151-151"></div>
+      </div>
+
+      <div class="bg-purple-100 rounded-2xl p-6 mb-8" data-id="y9rebwhk" data-line="154-159">
+        <h2 class="text-2xl font-bold text-purple-700 mb-3 flex items-center" data-id="s848sgd7" data-line="155-157">
+          <i class="fas fa-bullseye mr-3 text-purple-600" data-id="2ktmiieu" data-line="156-156"></i> Mục tiêu
+        </h2>
+        <p class="text-lg text-gray-700" data-id="osxnpm8g" data-line="158-158">Nhận biết các con vật và tô màu theo số đúng với mẫu. Giúp bé học màu sắc và quan sát chi tiết.</p>
+      </div>
+
+      <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="9kzluyo9" data-line="161-183">
+        <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="kmrj00uk" data-line="162-164">
+          <i class="fas fa-gamepad mr-3 text-blue-600" data-id="mfma6czd" data-line="163-163"></i> Cách chơi
+        </h2>
+        <div class="space-y-4" data-id="ilvxp7p0" data-line="165-182">
+          <div class="flex items-start" data-id="9i0utc3l" data-line="166-169">
+            <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="5nyqxfwm" data-line="167-167">1</div>
+            <p class="text-lg text-gray-700" data-id="1ppdvl3h" data-line="168-168">Quan sát hình mẫu đã tô màu bên trái</p>
+          </div>
+          <div class="flex items-start" data-id="a2dps3r5" data-line="170-173">
+            <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="iiu4ovc2" data-line="171-171">2</div>
+            <p class="text-lg text-gray-700" data-id="7oj3svwy" data-line="172-172">Chọn vùng số trên hình bên phải</p>
+          </div>
+          <div class="flex items-start" data-id="z5u7dhm3" data-line="174-177">
+            <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="zzu5sws0" data-line="175-175">3</div>
+            <p class="text-lg text-gray-700" data-id="fa9l801c" data-line="176-176">Chọn màu tương ứng từ bảng màu</p>
+          </div>
+          <div class="flex items-start" data-id="bkxbdrwe" data-line="178-181">
+            <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="iuu1ez8o" data-line="179-179">4</div>
+            <p class="text-lg text-gray-700" data-id="g7g86duq" data-line="180-180">Nhấn kiểm tra sau khi hoàn thành</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-pink-100 rounded-2xl p-6 mb-8" data-id="7spy37rt" data-line="185-206">
+        <h2 class="text-2xl font-bold text-pink-700 mb-3 flex items-center" data-id="2njh4ews" data-line="186-188">
+          <i class="fas fa-lightbulb mr-3 text-pink-600" data-id="x3t5nwhj" data-line="187-187"></i> Ví dụ
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6" data-id="7gkbj0kr" data-line="189-205">
+          <div class="bg-white rounded-xl p-4 shadow-md text-center" data-id="rd3tdoil" data-line="190-197">
+            <p class="font-semibold mb-2" data-id="8t14kjn0" data-line="191-191">Mẫu đúng</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-48 h-48 mx-auto" alt="Gà mẫu" data-id="xnymdgqj" data-line="192-192">
+            <div class="mt-4 flex justify-center space-x-2" data-id="yjdupw8e" data-line="193-196">
+              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm" data-id="ntmjcu7l" data-line="194-194">1: Đỏ</span>
+              <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm" data-id="a6lvway6" data-line="195-195">2: Vàng</span>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md text-center" data-id="nv03323o" data-line="198-204">
+            <p class="font-semibold mb-2" data-id="syeyyok2" data-line="199-199">Cần tô màu</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-48 h-48 mx-auto filter grayscale" alt="Gà tô màu" data-id="4lnbl3hz" data-line="200-200">
+            <div class="mt-4" data-id="qjjhelto" data-line="201-203">
+              <p class="text-red-500" data-id="fdmq8wfl" data-line="202-202"><i class="fas fa-times-circle mr-1" data-id="sbktrkuq" data-line="202-202"></i> Sai màu vùng số 1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-green-100 rounded-2xl p-6" data-id="gtvl1cwr" data-line="208-254">
+        <div class="grid md:grid-cols-2 gap-8" data-id="vbts1vid" data-line="209-253">
+          <div class="bg-white rounded-xl p-6 shadow-md text-center" data-id="ycy7cvxa" data-line="210-219">
+            <h3 class="text-2xl font-bold text-blue-600 mb-4 flex items-center justify-center" data-id="bsb1bd55" data-line="211-213">
+              <i class="fas fa-image mr-2" data-id="l5e36pgt" data-line="212-212"></i> Mẫu tham khảo
+            </h3>
+            <img id="referenceAnimal" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-64 h-64 mx-auto object-contain" alt="Gà mẫu" data-id="bjy9q6h8" data-line="214-214">
+            <div class="mt-4 grid grid-cols-2 gap-2" data-id="znpcgzkt" data-line="215-218">
+              <div class="bg-red-500 text-white py-2 rounded-lg" data-id="l3kpxrz2" data-line="216-216">1: Mào đỏ</div>
+              <div class="bg-yellow-500 text-white py-2 rounded-lg" data-id="2g1xlu9q" data-line="217-217">2: Lông vàng</div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md" data-id="b41j3yoj" data-line="221-252">
+            <h3 class="text-2xl font-bold text-purple-600 mb-4 flex items-center justify-center" data-id="lfj9j296" data-line="222-224">
+              <i class="fas fa-paint-brush mr-2" data-id="ck2xxjlr" data-line="223-223"></i> Tô màu
+            </h3>
+            <div class="relative mx-auto" style="width: 256px; height: 256px;" data-id="71eqt0h3" data-line="225-235">
+              <img id="colorAnimalImage" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-full h-full object-contain filter grayscale" alt="Gà tô màu" data-id="ph7ga4kk" data-line="226-226">
+              <div class="absolute inset-0 grid grid-cols-2 grid-rows-2" data-id="jikcrqrz" data-line="227-234">
+                <div class="region border-2 border-dashed border-transparent hover:border-blue-400 transition-all cursor-pointer flex items-center justify-center" data-region="1" data-id="qzor8rnr" data-line="228-230">
+                  <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="0di36hrc" data-line="229-229">1</span>
+                </div>
+                <div class="region border-2 border-dashed border-transparent hover:border-blue-400 transition-all cursor-pointer flex items-center justify-center" data-region="2" data-id="zi0okfhc" data-line="231-233">
+                  <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="ekx2t3yn" data-line="232-232">2</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6" data-id="wqftncbx" data-line="237-245">
+              <h4 class="text-xl font-semibold text-center mb-3" data-id="frb8geo3" data-line="238-238">Chọn màu</h4>
+              <div class="color-palette flex justify-center gap-4 mb-6" data-id="r6xgzzah" data-line="239-244">
+                <div class="color-option bg-red-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="red" data-id="0d5pkoxb" data-line="240-240"></div>
+                <div class="color-option bg-yellow-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="yellow" data-id="x2elhbwq" data-line="241-241"></div>
+                <div class="color-option bg-blue-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="blue" data-id="seafxon3" data-line="242-242"></div>
+                <div class="color-option bg-green-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="green" data-id="nnki2l6r" data-line="243-243"></div>
+              </div>
+            </div>
+            
+            <button id="checkColoringBtn" class="w-full bg-purple-500 hover:bg-purple-600 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg" data-id="dlad7gn6" data-line="247-249">
+              <i class="fas fa-check-circle mr-2" data-id="6bilcg1a" data-line="248-248"></i> Kiểm tra
+            </button>
+            
+            <div id="colorFeedback" class="hidden text-center text-xl font-semibold p-4 rounded-xl mt-4" data-id="410t8vwp" data-line="251-251"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Sentence Builder -->
+  <div id="sentenceBuilderScreen" class="screen container mx-auto px-4 py-8 min-h-screen hidden" data-id="8oyjo7lp" data-line="259-350">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="pabgjwbb" data-line="260-349">
+      <div class="text-center mb-8" data-id="s64hfgrq" data-line="261-264">
+        <h1 class="text-5xl font-bold text-pink-600 mb-4" data-id="pfch5efi" data-line="262-262">Nối thành câu có nghĩa</h1>
+        <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="4w4lxauv" data-line="263-263"></div>
+      </div>
+
+      <div class="bg-pink-100 rounded-2xl p-6 mb-8" data-id="axaegbd1" data-line="266-271">
+        <h2 class="text-2xl font-bold text-pink-700 mb-3 flex items-center" data-id="vxog10lv" data-line="267-269">
+          <i class="fas fa-bullseye mr-3 text-pink-600" data-id="gqfiyk1a" data-line="268-268"></i> Mục tiêu
+        </h2>
+        <p class="text-lg text-gray-700" data-id="e1484x6u" data-line="270-270">Sắp xếp các từ thành câu hoàn chỉnh. Giúp bé hiểu cấu trúc câu đơn giản trong tiếng Việt.</p>
+      </div>
+
+      <div class="bg-green-100 rounded-2xl p-6 mb-8" data-id="3j8bsc1z" data-line="273-291">
+        <h2 class="text-2xl font-bold text-green-700 mb-3 flex items-center" data-id="m1wp2382" data-line="274-276">
+          <i class="fas fa-gamepad mr-3 text-green-600" data-id="sgvhjtg0" data-line="275-275"></i> Cách chơi
+        </h2>
+        <div class="space-y-4" data-id="28p815ql" data-line="277-290">
+          <div class="flex items-start" data-id="6id25pzc" data-line="278-281">
+            <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="yb5nff1d" data-line="279-279">1</div>
+            <p class="text-lg text-gray-700" data-id="a3kh5qmv" data-line="280-280">Kéo các từ ở phía trên vào khung trắng</p>
+          </div>
+          <div class="flex items-start" data-id="8qio1qx7" data-line="282-285">
+            <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="d1hjox4l" data-line="283-283">2</div>
+            <p class="text-lg text-gray-700" data-id="zd58b9gl" data-line="284-284">Sắp xếp theo thứ tự đúng để tạo thành câu</p>
+          </div>
+          <div class="flex items-start" data-id="avehwodt" data-line="286-289">
+            <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="j96eoqc8" data-line="287-287">3</div>
+            <p class="text-lg text-gray-700" data-id="e8rdn4ih" data-line="288-288">Nhấn "Kiểm tra" để xem kết quả</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="qjtpf4ua" data-line="293-321">
+        <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="4rzmsoat" data-line="294-296">
+          <i class="fas fa-lightbulb mr-3 text-blue-600" data-id="1f5g35an" data-line="295-295"></i> Ví dụ
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6" data-id="uly5xtjs" data-line="297-320">
+          <div class="bg-white rounded-xl p-4 shadow-md" data-id="52dbrown" data-line="298-308">
+            <p class="font-semibold mb-2" data-id="4v620thh" data-line="299-299">Câu đúng</p>
+            <div class="flex space-x-2 mb-4" data-id="ogs7stk5" data-line="300-304">
+              <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="r8acrxfs" data-line="301-301">Bé</div>
+              <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="ulsj2acd" data-line="302-302">đi</div>
+              <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="00bsp4cx" data-line="303-303">học</div>
+            </div>
+            <div class="text-green-500" data-id="v31hjdfq" data-line="305-307">
+              <i class="fas fa-check-circle mr-1" data-id="yibed01a" data-line="306-306"></i> "Bé đi học" - Chính xác!
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md" data-id="gim8rz9u" data-line="309-319">
+            <p class="font-semibold mb-2" data-id="xo4d7toy" data-line="310-310">Câu sai</p>
+            <div class="flex space-x-2 mb-4" data-id="xl71luil" data-line="311-315">
+              <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="iaooisvq" data-line="312-312">Học</div>
+              <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="vlqc5wzr" data-line="313-313">bé</div>
+              <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="wrx1tu8t" data-line="314-314">đi</div>
+            </div>
+            <div class="text-red-500" data-id="svjr3av3" data-line="316-318">
+              <i class="fas fa-times-circle mr-1" data-id="iob7gmpb" data-line="317-317"></i> Sai thứ tự từ
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-yellow-100 rounded-2xl p-6" data-id="f96oe0xt" data-line="323-348">
+        <div class="bg-white rounded-xl p-6 shadow-md mb-6" data-id="92goj6be" data-line="324-331">
+          <h3 class="text-xl font-bold text-center mb-4" data-id="pbiei0qk" data-line="325-325">Kéo các từ vào khung bên dưới</h3>
+          <div id="sentenceWords" class="flex flex-wrap justify-center gap-3" data-id="088gmnrz" data-line="326-330">
+            <div class="word-card bg-blue-100 text-blue-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-blue-200 transition-all" draggable="true" data-word="bé" data-id="30l81y49" data-line="327-327">bé</div>
+            <div class="word-card bg-purple-100 text-purple-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-purple-200 transition-all" draggable="true" data-word="đi" data-id="l5w9zkf3" data-line="328-328">đi</div>
+            <div class="word-card bg-green-100 text-green-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-green-200 transition-all" draggable="true" data-word="học" data-id="wdudtr0o" data-line="329-329">học</div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl p-6 shadow-md mb-6" data-id="wxgj516m" data-line="333-337">
+          <div id="sentenceDropZone" class="drop-zone min-h-24 border-4 border-dashed border-blue-200 rounded-xl p-4 flex flex-wrap gap-2" data-id="hti2shyf" data-line="334-336">
+            <p class="text-gray-400 w-full text-center my-8" data-id="1c397v78" data-line="335-335">Kéo các từ vào đây</p>
+          </div>
+        </div>
+        
+        <button id="checkSentenceBtn" class="w-full bg-pink-500 hover:bg-pink-600 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg" data-id="w1typdyk" data-line="339-341">
+          <i class="fas fa-check-circle mr-2" data-id="ndeoki7p" data-line="340-340"></i> Kiểm tra
+        </button>
+        
+        <div id="sentenceFeedback" class="hidden text-center text-xl font-semibold p-4 rounded-xl mt-4" data-id="v38q5bi3" data-line="343-347">
+          <div id="mascotFeedback" class="flex items-center justify-center mb-2" data-id="lkgwrixm" data-line="344-346">
+            <img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" class="w-16 h-16" alt="Mascot vui" data-id="v57mmke4" data-line="345-345">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script data-id="tfshudvl" data-line="352-576">
+    // Write Dictation Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const dictationCanvas = document.getElementById('dictationCanvas');
+      const dictationCtx = dictationCanvas.getContext('2d');
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      dictationCanvas.width = dictationCanvas.offsetWidth;
+      dictationCanvas.height = dictationCanvas.offsetHeight;
+
+      function startDrawingDictation(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+
+      function drawDictation(e) {
+        if (!isDrawing) return;
+        dictationCtx.beginPath();
+        dictationCtx.moveTo(lastX, lastY);
+        dictationCtx.lineTo(e.offsetX, e.offsetY);
+        dictationCtx.strokeStyle = '#3b82f6';
+        dictationCtx.lineWidth = 8;
+        dictationCtx.lineCap = 'round';
+        dictationCtx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+
+      function stopDrawingDictation() {
+        isDrawing = false;
+      }
+
+      dictationCanvas.addEventListener('mousedown', startDrawingDictation);
+      dictationCanvas.addEventListener('mousemove', drawDictation);
+      dictationCanvas.addEventListener('mouseup', stopDrawingDictation);
+      dictationCanvas.addEventListener('mouseout', stopDrawingDictation);
+
+      // Touch support
+      dictationCanvas.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousedown', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        dictationCanvas.dispatchEvent(mouseEvent);
+      }, false);
+
+      dictationCanvas.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        dictationCanvas.dispatchEvent(mouseEvent);
+      }, false);
+
+      dictationCanvas.addEventListener('touchend', () => {
+        const mouseEvent = new MouseEvent('mouseup', {});
+        dictationCanvas.dispatchEvent(mouseEvent);
+      }, false);
+
+      document.getElementById('clearCanvasBtn').addEventListener('click', function() {
+        dictationCtx.clearRect(0, 0, dictationCanvas.width, dictationCanvas.height);
+      });
+
+      document.getElementById('dictationAudioBtn').addEventListener('click', function() {
+        const feedback = document.getElementById('dictationFeedback');
+        feedback.textContent = "Nghe và viết chữ 'Bé'";
+        feedback.className = "bg-blue-100 text-blue-800";
+        feedback.classList.remove('hidden');
+        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      });
+
+      document.getElementById('submitDictationBtn').addEventListener('click', function() {
+        const feedback = document.getElementById('dictationFeedback');
+        const isCorrect = Math.random() > 0.3;
+        
+        if (isCorrect) {
+          feedback.innerHTML = "✅ <span class='correct-feedback'>Chính xác! Viết đẹp lắm!</span>";
+          feedback.className = "bg-green-100 text-green-800";
+        } else {
+          feedback.innerHTML = "❌ Thử viết lại nhé! Gợi ý: bắt đầu từ trên xuống";
+          feedback.className = "bg-red-100 text-red-800";
+        }
+        feedback.classList.remove('hidden');
+      });
+
+      // Color by Number Logic
+      let selectedColor = '';
+      let selectedRegion = null;
+
+      document.querySelectorAll('.color-option').forEach(option => {
+        option.addEventListener('click', function() {
+          selectedColor = this.getAttribute('data-color');
+          document.querySelectorAll('.color-option').forEach(opt => {
+            opt.style.transform = 'scale(1)';
+            opt.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+          });
+          this.style.transform = 'scale(1.2)';
+          this.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.2)';
+        });
+      });
+
+      document.querySelectorAll('.region').forEach(region => {
+        region.addEventListener('click', function() {
+          if (!selectedColor) return;
+          
+          selectedRegion = this.getAttribute('data-region');
+          this.style.backgroundColor = selectedColor;
+          this.style.opacity = '0.7';
+        });
+      });
+
+      document.getElementById('checkColoringBtn').addEventListener('click', function() {
+        const feedback = document.getElementById('colorFeedback');
+        
+        if (selectedRegion === "1" && selectedColor === "red") {
+          feedback.innerHTML = `
+            <div class="flex items-center justify-center text-green-600">
+              <i class="fas fa-check-circle text-3xl mr-2"></i>
+              <span class="text-2xl">Tuyệt vời! Con gà có mào đỏ</span>
+            </div>
+          `;
+          feedback.className = "bg-green-100 text-green-800";
+        } else {
+          feedback.innerHTML = `
+            <div class="flex items-center justify-center text-red-600">
+              <i class="fas fa-times-circle text-3xl mr-2"></i>
+              <span class="text-2xl">Vùng số 1 nên tô màu đỏ</span>
+            </div>
+          `;
+          feedback.className = "bg-red-100 text-red-800";
+        }
+        feedback.classList.remove('hidden');
+      });
+
+      // Sentence Builder Logic
+      let draggedWord = null;
+
+      document.querySelectorAll('.word-card').forEach(card => {
+        card.addEventListener('dragstart', function(e) {
+          draggedWord = this;
+          setTimeout(() => this.style.opacity = '0.4', 0);
+          e.dataTransfer.setData('text/plain', this.dataset.word);
+          this.style.transform = 'scale(0.9)';
+        });
+        
+        card.addEventListener('dragend', function() {
+          this.style.opacity = '1';
+          this.style.transform = 'scale(1)';
+        });
+      });
+
+      const dropZone = document.getElementById('sentenceDropZone');
+      dropZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.style.backgroundColor = '#f0fdf4';
+        this.style.borderColor = '#4ade80';
+      });
+      
+      dropZone.addEventListener('dragleave', function() {
+        this.style.backgroundColor = '';
+        this.style.borderColor = '#bfdbfe';
+      });
+      
+      dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.style.backgroundColor = '';
+        this.style.borderColor = '#bfdbfe';
+        
+        if (draggedWord) {
+          const word = e.dataTransfer.getData('text/plain');
+          const wordElement = document.createElement('div');
+          wordElement.className = 'word-card bg-blue-100 text-blue-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-blue-200 transition-all';
+          wordElement.textContent = word;
+          wordElement.dataset.word = word;
+          wordElement.draggable = true;
+          
+          wordElement.addEventListener('dragstart', function(e) {
+            this.style.opacity = '0.4';
+            e.dataTransfer.setData('text/plain', this.dataset.word);
+          });
+          
+          wordElement.addEventListener('dragend', function() {
+            this.style.opacity = '1';
+          });
+
+          if (this.querySelector('p.text-gray-400')) {
+            this.innerHTML = '';
+          }
+          
+          this.appendChild(wordElement);
+        }
+      });
+
+      document.getElementById('checkSentenceBtn').addEventListener('click', function() {
+        const words = Array.from(dropZone.querySelectorAll('.word-card')).map(w => w.textContent);
+        const sentence = words.join(' ');
+        const feedback = document.getElementById('sentenceFeedback');
+        const mascot = document.getElementById('mascotFeedback');
+        
+        if (sentence === "bé đi học") {
+          mascot.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" class="w-16 h-16 animate-bounce" alt="Mascot vui">';
+          feedback.innerHTML = `
+            <div class="flex flex-col items-center">
+              <div class="text-green-600 text-2xl mb-2">✅ Chính xác: "${sentence}"</div>
+              <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-2 flex items-center">
+                <i class="fas fa-volume-up mr-2"></i> Nghe câu
+              </button>
+            </div>
+          `;
+          feedback.className = "bg-green-100 text-green-800";
+        } else {
+          mascot.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/1864/1864511.png" class="w-16 h-16" alt="Mascot buồn">';
+          feedback.innerHTML = `
+            <div class="text-red-600 text-2xl">❌ Thứ tự chưa đúng, thử lại nhé!</div>
+            <p class="text-gray-700 mt-2">Gợi ý: Câu nói về bé đi đâu?</p>
+          `;
+          feedback.className = "bg-red-100 text-red-800";
+        }
+        feedback.classList.remove('hidden');
+      });
+    });
+  </script>
+</div>
+<div class="min-h-screen" data-id="fm7lxlou" data-line="43-394">
+    <!-- Screen 2: Color by Number -->
+    <div id="colorAnimalScreen" class="container mx-auto px-4 py-8 min-h-screen" data-id="ow9wskwt" data-line="46-394">
+      <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="0jzv030u" data-line="47-156">
+        <div class="text-center mb-8" data-id="b7ntn3oe" data-line="48-51">
+          <h1 class="text-5xl font-bold text-purple-600 mb-4" data-id="ksag66jz" data-line="49-49">Tô màu đúng cho con vật</h1>
+          <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="ia4h9sus" data-line="50-50"></div>
+        </div>
+  
+        <div class="bg-purple-100 rounded-2xl p-6 mb-8" data-id="lcrfmj89" data-line="53-58">
+          <h2 class="text-2xl font-bold text-purple-700 mb-3 flex items-center" data-id="qpmx6ozf" data-line="54-56">
+            <i class="fas fa-bullseye mr-3 text-purple-600" data-id="639mwsia" data-line="55-55"></i> Mục tiêu
+          </h2>
+          <p class="text-lg text-gray-700" data-id="hxpc84rc" data-line="57-57">Nhận biết các con vật và tô màu theo số đúng với mẫu. Giúp bé học màu sắc và quan sát chi tiết.</p>
+        </div>
+  
+        <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="az148yqd" data-line="60-85">
+          <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="idfgkiym" data-line="61-63">
+            <i class="fas fa-gamepad mr-3 text-blue-600" data-id="amo19fa2" data-line="62-62"></i> Cách chơi
+          </h2>
+          <div class="space-y-4" data-id="y8ech6uh" data-line="64-81">
+            <div class="flex items-start" data-id="sr36ibsp" data-line="65-68">
+              <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="o2hxp8a7" data-line="66-66">1</div>
+              <p class="text-lg text-gray-700" data-id="rctthbg4" data-line="67-67">Quan sát hình mẫu đã tô màu bên trái</p>
+            </div>
+            <div class="flex items-start" data-id="ybkas5gm" data-line="69-72">
+              <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="3j3y8g1z" data-line="70-70">2</div>
+              <p class="text-lg text-gray-700" data-id="1i5igrbl" data-line="71-71">Chọn vùng số trên hình bên phải</p>
+            </div>
+            <div class="flex items-start" data-id="c84z7szb" data-line="73-76">
+              <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="lqo8t7jm" data-line="74-74">3</div>
+              <p class="text-lg text-gray-700" data-id="pxog9xsj" data-line="75-75">Chọn màu tương ứng từ bảng màu</p>
+            </div>
+            <div class="flex items-start" data-id="sxeq1l10" data-line="77-80">
+              <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="bvmvih0e" data-line="78-78">4</div>
+              <p class="text-lg text-gray-700" data-id="r2xrris8" data-line="79-79">Nhấn kiểm tra sau khi hoàn thành</p>
+            </div>
+          </div>
+       
+            <div class="<=&quot;" "="" div="" data-line="83-84" data-id="qkgfssqa">
+          </div>
+        </div>
+  
+        <div class="bg-green-100 rounded-2xl p-6" data-id="ntsbj52r" data-line="87-155">
+          <div class="grid md:grid-cols-2 gap-8" data-id="8s21o67v" data-line="88-154">
+            <div class="bg-white rounded-xl p-6 shadow-md text-center" data-id="5wwvkhhh" data-line="89-98">
+              <h3 class="text-2xl font-bold text-blue-600 mb-4 flex items-center justify-center" data-id="80wlxqse" data-line="90-92">
+                <i class="fas fa-image mr-2" data-id="8pl9md1q" data-line="91-91"></i> Mẫu tham khảo
+              </h3>
+              <img id="referenceAnimal" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-64 h-64 mx-auto object-contain" alt="Gà mẫu" data-id="mm1btujg" data-line="93-93">
+              <div class="mt-4 grid grid-cols-2 gap-2" data-id="ydds775u" data-line="94-97">
+                <div class="bg-red-500 text-white py-2 rounded-lg" data-id="n02f7akh" data-line="95-95">1: Tai nâu</div>
+                <div class="bg-yellow-500 text-white py-2 rounded-lg" data-id="afgx9b5q" data-line="96-96">2: Lông vàng </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 shadow-md" data-id="maw4wjpi" data-line="100-153">
+              <h3 class="text-2xl font-bold text-purple-600 mb-4 flex items-center justify-center" data-id="xr0an2b3" data-line="101-103">
+                <i class="fas fa-paint-brush mr-2" data-id="9eiyo2pc" data-line="102-102"></i> Tô màu
+              </h3><div class="relative mx-auto" style="width: 256px; height: 256px;" data-id="p624qh93" data-line="103-135">
+    <img id="colorAnimalImage" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-full h-full object-contain filter grayscale" alt="Chó tô màu" data-id="no5z22n6" data-line="104-104">
+    
+    <!-- Tai trái -->
+    <div class="absolute top-[20%] left-[5%] region" data-region="1" data-id="ql5wufcr" data-line="107-109">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="z8bixdb7" data-line="108-108">1</span>
+    </div>
+    
+    <!-- Tai phải -->
+    <div class="absolute top-[20%] right-[5%] region" data-region="2" data-id="pak9dwop" data-line="112-114">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="kiombom2" data-line="113-113">2</span>
+    </div>
+  
+    <!-- Mặt chính -->
+    <div class="absolute top-[15%] left-[40%] region" data-region="3" data-id="psq72b8x" data-line="117-119">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="xa6xznr0" data-line="118-118">3</span>
+    </div>
+  
+    <!-- Mõm -->
+    <div class="absolute top-[67%] left-[27%] region" data-region="4" data-id="00djmdq5" data-line="122-124">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="a5a7h27k" data-line="123-123">4</span>
+    </div>
+  
+    <!-- Lưỡi -->
+    <div class="absolute top-[80%] left-[45%] region" data-region="5" data-id="f8hg5wna" data-line="127-129">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="o2r69smq" data-line="128-128">5</span>
+    </div>
+  
+    <!-- Mũi đen -->
+    <div class="absolute top-[58%] left-[45%] region" data-region="6" data-id="9gunqhmi" data-line="132-134">
+      <span class="number-badge bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center" data-id="n0e0qmhn" data-line="133-133">6</span>
+    </div>
+  </div>
+  
+              
+              <div class="mt-6" data-id="bkef1227" data-line="138-146">
+                <h4 class="text-xl font-semibold text-center mb-3" data-id="yppjf5j6" data-line="139-139">Chọn màu</h4>
+                <div class="color-palette flex justify-center gap-4 mb-6" data-id="frk2s4hs" data-line="140-145">
+                  <div class="color-option bg-red-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="red" data-id="bmfge94p" data-line="141-141"></div>
+                  <div class="color-option bg-yellow-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="yellow" data-id="dzenhugy" data-line="142-142"></div>
+                  <div class="color-option bg-blue-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="blue" data-id="4i86y2tf" data-line="143-143"></div>
+                  <div class="color-option bg-green-500 w-12 h-12 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all" data-color="green" data-id="b6u3g36d" data-line="144-144"></div>
+                </div>
+              </div>
+              
+              <button id="checkColoringBtn" class="w-full bg-purple-500 hover:bg-purple-600 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg" data-id="e63s1krc" data-line="148-150">
+                <i class="fas fa-check-circle mr-2" data-id="9zz89x4d" data-line="149-149"></i> Kiểm tra
+              </button>
+              
+              <div id="colorFeedback" class="hidden text-center text-xl font-semibold p-4 rounded-xl mt-4" data-id="cp9vi7ii" data-line="152-152"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+    <!-- Screen 3: Sentence Builder -->
+    <div id="sentenceBuilderScreen" class="container mx-auto px-4 py-8 min-h-screen" data-id="apx1kjp4" data-line="160-251">
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8" data-id="dyv2xvw3" data-line="161-250">
+        <div class="text-center mb-8" data-id="2lup19xn" data-line="162-165">
+          <h1 class="text-5xl font-bold text-pink-600 mb-4" data-id="vgdcr6jz" data-line="163-163">Nối thành câu có nghĩa</h1>
+          <div class="w-24 h-2 bg-yellow-400 mx-auto rounded-full" data-id="zoj92uam" data-line="164-164"></div>
+        </div>
+  
+        <div class="bg-pink-100 rounded-2xl p-6 mb-8" data-id="oqus3k82" data-line="167-172">
+          <h2 class="text-2xl font-bold text-pink-700 mb-3 flex items-center" data-id="slyg8j7u" data-line="168-170">
+            <i class="fas fa-bullseye mr-3 text-pink-600" data-id="ljg8wazd" data-line="169-169"></i> Mục tiêu
+          </h2>
+          <p class="text-lg text-gray-700" data-id="toup9uq7" data-line="171-171">Sắp xếp các từ thành câu hoàn chỉnh. Giúp bé hiểu cấu trúc câu đơn giản trong tiếng Việt.</p>
+        </div>
+  
+        <div class="bg-green-100 rounded-2xl p-6 mb-8" data-id="7d163r2c" data-line="174-192">
+          <h2 class="text-2xl font-bold text-green-700 mb-3 flex items-center" data-id="rdto1bel" data-line="175-177">
+            <i class="fas fa-gamepad mr-3 text-green-600" data-id="6lzkqcpv" data-line="176-176"></i> Cách chơi
+          </h2>
+          <div class="space-y-4" data-id="1w7h5y89" data-line="178-191">
+            <div class="flex items-start" data-id="fuaroqld" data-line="179-182">
+              <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="ozg03px3" data-line="180-180">1</div>
+              <p class="text-lg text-gray-700" data-id="t6w7xn33" data-line="181-181">Kéo các từ ở phía trên vào khung trắng</p>
+            </div>
+            <div class="flex items-start" data-id="lb267skv" data-line="183-186">
+              <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="nnulrem2" data-line="184-184">2</div>
+              <p class="text-lg text-gray-700" data-id="3bddiqab" data-line="185-185">Sắp xếp theo thứ tự đúng để tạo thành câu</p>
+            </div>
+            <div class="flex items-start" data-id="3n9o7iwm" data-line="187-190">
+              <div class="bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3" data-id="89ymkw98" data-line="188-188">3</div>
+              <p class="text-lg text-gray-700" data-id="5vl337wt" data-line="189-189">Nhấn "Kiểm tra" để xem kết quả</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-blue-100 rounded-2xl p-6 mb-8" data-id="dwk8dhnd" data-line="194-222">
+          <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center" data-id="mkczmuno" data-line="195-197">
+            <i class="fas fa-lightbulb mr-3 text-blue-600" data-id="xyo5934p" data-line="196-196"></i> Ví dụ
+          </h2>
+          <div class="grid md:grid-cols-2 gap-6" data-id="7od9gfe6" data-line="198-221">
+            <div class="bg-white rounded-xl p-4 shadow-md" data-id="m1kcuk7a" data-line="199-209">
+              <p class="font-semibold mb-2" data-id="qz0bkgdq" data-line="200-200">Câu đúng</p>
+              <div class="flex space-x-2 mb-4" data-id="9s9osvby" data-line="201-205">
+                <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="0teml0i9" data-line="202-202">Bé</div>
+                <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="ukxkl0ww" data-line="203-203">đi</div>
+                <div class="word-example bg-green-100 text-green-800 px-4 py-2 rounded-lg" data-id="yn5xg6mh" data-line="204-204">học</div>
+              </div>
+              <div class="text-green-500" data-id="ponewoct" data-line="206-208">
+                <i class="fas fa-check-circle mr-1" data-id="tcq45p4e" data-line="207-207"></i> "Bé đi học" - Chính xác!
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-md" data-id="cz1fqbhq" data-line="210-220">
+              <p class="font-semibold mb-2" data-id="nay5chz9" data-line="211-211">Câu sai</p>
+              <div class="flex space-x-2 mb-4" data-id="zq191fj3" data-line="212-216">
+                <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="o9elh37s" data-line="213-213">Học</div>
+                <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="jseipp22" data-line="214-214">bé</div>
+                <div class="word-example bg-red-100 text-red-800 px-4 py-2 rounded-lg" data-id="ph5icf9p" data-line="215-215">đi</div>
+              </div>
+              <div class="text-red-500" data-id="f1yw9ydm" data-line="217-219">
+                <i class="fas fa-times-circle mr-1" data-id="ojkw1iyo" data-line="218-218"></i> Sai thứ tự từ
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-yellow-100 rounded-2xl p-6" data-id="kr782ky7" data-line="224-249">
+          <div class="bg-white rounded-xl p-6 shadow-md mb-6" data-id="o9zp930f" data-line="225-232">
+            <h3 class="text-xl font-bold text-center mb-4" data-id="546zgo2a" data-line="226-226">Kéo các từ vào khung bên dưới</h3>
+            <div id="sentenceWords" class="flex flex-wrap justify-center gap-3" data-id="pemcdgy9" data-line="227-231">
+              <div class="word-card bg-blue-100 text-blue-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-blue-200 transition-all" draggable="true" data-word="bé" data-id="vfresfhh" data-line="228-228">bé</div>
+              <div class="word-card bg-purple-100 text-purple-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-purple-200 transition-all" draggable="true" data-word="đi" data-id="p25498c8" data-line="229-229">đi</div>
+              <div class="word-card bg-green-100 text-green-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-green-200 transition-all" draggable="true" data-word="học" data-id="kg5l98kl" data-line="230-230">học</div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md mb-6" data-id="s2x29m0w" data-line="234-238">
+            <div id="sentenceDropZone" class="drop-zone min-h-24 border-4 border-dashed border-blue-200 rounded-xl p-4 flex flex-wrap gap-2" data-id="0zw5bvbz" data-line="235-237">
+              <p class="text-gray-400 w-full text-center my-8" data-id="770k784o" data-line="236-236">Kéo các từ vào đây</p>
+            </div>
+          </div>
+          
+          <button id="checkSentenceBtn" class="w-full bg-pink-500 hover:bg-pink-600 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg" data-id="1sezeihw" data-line="240-242">
+            <i class="fas fa-check-circle mr-2" data-id="11x3vf15" data-line="241-241"></i> Kiểm tra
+          </button>
+          
+          <div id="sentenceFeedback" class="hidden text-center text-xl font-semibold p-4 rounded-xl mt-4" data-id="c9oiw2a9" data-line="244-248">
+            <div id="mascotFeedback" class="flex items-center justify-center mb-2" data-id="c4zwkqql" data-line="245-247">
+              <img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" class="w-16 h-16" alt="Mascot vui" data-id="q2gvxi6g" data-line="246-246">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script data-id="qds46rom" data-line="253-391">
+      // Color by Number Logic
+      document.addEventListener('DOMContentLoaded', function() {
+        let selectedColor = '';
+        let selectedRegion = null;
+  
+        document.querySelectorAll('.color-option').forEach(option => {
+          option.addEventListener('click', function() {
+            selectedColor = this.getAttribute('data-color');
+            document.querySelectorAll('.color-option').forEach(opt => {
+              opt.style.transform = 'scale(1)';
+              opt.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            });
+            this.style.transform = 'scale(1.2)';
+            this.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.2)';
+          });
+        });
+  
+        document.querySelectorAll('.region').forEach(region => {
+          region.addEventListener('click', function() {
+            if (!selectedColor) return;
+            
+            selectedRegion = this.getAttribute('data-region');
+            this.style.backgroundColor = selectedColor;
+            this.style.opacity = '0.7';
+          });
+        });
+  
+        document.getElementById('checkColoringBtn').addEventListener('click', function() {
+          const feedback = document.getElementById('colorFeedback');
+          
+          if (selectedRegion === "1" && selectedColor === "red") {
+            feedback.innerHTML = `
+              <div class="flex items-center justify-center text-green-600">
+                <i class="fas fa-check-circle text-3xl mr-2"></i>
+                <span class="text-2xl">Tuyệt vời! Con gà có mào đỏ</span>
+              </div>
+            `;
+            feedback.className = "bg-green-100 text-green-800";
+          } else {
+            feedback.innerHTML = `
+              <div class="flex items-center justify-center text-red-600">
+                <i class="fas fa-times-circle text-3xl mr-2"></i>
+                <span class="text-2xl">Vùng số 1 nên tô màu đỏ</span>
+              </div>
+            `;
+            feedback.className = "bg-red-100 text-red-800";
+          }
+          feedback.classList.remove('hidden');
+        });
+  
+        // Sentence Builder Logic
+        let draggedWord = null;
+  
+        document.querySelectorAll('.word-card').forEach(card => {
+          card.addEventListener('dragstart', function(e) {
+            draggedWord = this;
+            setTimeout(() => this.style.opacity = '0.4', 0);
+            e.dataTransfer.setData('text/plain', this.dataset.word);
+            this.style.transform = 'scale(0.9)';
+          });
+          
+          card.addEventListener('dragend', function() {
+            this.style.opacity = '1';
+            this.style.transform = 'scale(1)';
+          });
+        });
+  
+        const dropZone = document.getElementById('sentenceDropZone');
+        dropZone.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          this.style.backgroundColor = '#f0fdf4';
+          this.style.borderColor = '#4ade80';
+        });
+        
+        dropZone.addEventListener('dragleave', function() {
+          this.style.backgroundColor = '';
+          this.style.borderColor = '#bfdbfe';
+        });
+        
+        dropZone.addEventListener('drop', function(e) {
+          e.preventDefault();
+          this.style.backgroundColor = '';
+          this.style.borderColor = '#bfdbfe';
+          
+          if (draggedWord) {
+            const word = e.dataTransfer.getData('text/plain');
+            const wordElement = document.createElement('div');
+            wordElement.className = 'word-card bg-blue-100 text-blue-800 text-xl font-bold px-6 py-3 rounded-xl shadow-md cursor-move hover:bg-blue-200 transition-all';
+            wordElement.textContent = word;
+            wordElement.dataset.word = word;
+            wordElement.draggable = true;
+            
+            wordElement.addEventListener('dragstart', function(e) {
+              this.style.opacity = '0.4';
+              e.dataTransfer.setData('text/plain', this.dataset.word);
+            });
+            
+            wordElement.addEventListener('dragend', function() {
+              this.style.opacity = '1';
+            });
+  
+            if (this.querySelector('p.text-gray-400')) {
+              this.innerHTML = '';
+            }
+            
+            this.appendChild(wordElement);
+          }
+        });
+  
+        document.getElementById('checkSentenceBtn').addEventListener('click', function() {
+          const words = Array.from(dropZone.querySelectorAll('.word-card')).map(w => w.textContent);
+          const sentence = words.join(' ');
+          const feedback = document.getElementById('sentenceFeedback');
+          const mascot = document.getElementById('mascotFeedback');
+          
+          if (sentence === "bé đi học") {
+            mascot.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" class="w-16 h-16 animate-bounce" alt="Mascot vui">';
+            feedback.innerHTML = `
+              <div class="flex flex-col items-center">
+                <div class="text-green-600 text-2xl mb-2">✅ Chính xác: "${sentence}"</div>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-2 flex items-center">
+                  <i class="fas fa-volume-up mr-2"></i> Nghe câu
+                </button>
+              </div>
+            `;
+            feedback.className = "bg-green-100 text-green-800";
+          } else {
+            mascot.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/1864/1864511.png" class="w-16 h-16" alt="Mascot buồn">';
+            feedback.innerHTML = `
+              <div class="text-red-600 text-2xl">❌ Thứ tự chưa đúng, thử lại nhé!</div>
+              <p class="text-gray-700 mt-2">Gợi ý: Câu nói về bé đi đâu?</p>
+            `;
+            feedback.className = "bg-red-100 text-red-800";
+          }
+          feedback.classList.remove('hidden');
+        });
+      });
+    </script>
+  
+  
+  </div>
+</div>
+</body></html>
